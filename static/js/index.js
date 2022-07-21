@@ -27,7 +27,7 @@ L2Dwidget.init({
 		scale: 1,
 		hHeadPos: 0.5,
 		vHeadPos: 0.618,
-		jsonPath: '/snow_miku/model.json',
+		jsonPath: '/blog/snow_miku/model.json',
 	},
 	display: 
 	{
