@@ -1,0 +1,14 @@
+html,body
+{
+    height: 100%;
+    cursor: url("https://m21248074.github.io/img/default.cur"),default;
+}
+a:hover
+{
+    cursor: url("https://m21248074.github.io/img/pointer.cur"),pointer;
+}
+#cover
+{
+	background-color: rgba(0, 0, 0, .6);
+	background-blend-mode: multiply;
+}
