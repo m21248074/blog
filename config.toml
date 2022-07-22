@@ -378,13 +378,13 @@ canonifyurls = true
       # shortname = "hugo-tranquilpeak-theme"
     [params.comment.gitalk]
       enable = true
-      # clientId =
-      # clientSecret =
-      # owner =
-      # repo =
+      clientId = 80d25f13bb9dd51bcdd8
+      clientSecret = 8cec508ab11344cfd73cd211a3e5912798afa10c
+      owner = m21248074
+      repo = blog
       # See all options: https://github.com/gitalk/gitalk#options
       [params.comment.gitalk.options]
-        language = "en"
+        language = "zh-TW"
         perPage = 10
         distractionFreeMode = false
         enableHotKey = true
