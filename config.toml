@@ -112,10 +112,10 @@ canonifyurls = true
   url = "https://www.facebook.com/Cavey21248074"
 [[menu.links]]
   weight = 4
-  identifier = "Youtube"
-  name = "Youtube"
-  pre = "<i class=\"sidebar-button-icon fab fa-lg fa-youtube\" aria-hidden=\"true\"></i>"
-  url = "https://www.youtube.com/channel/UCjFwMybvBWl75kiRbHNu2lA"
+  identifier = "steam"
+  name = "Steam"
+  pre = "<i class=\"sidebar-button-icon fab fa-lg fa-steam\" aria-hidden=\"true\"></i>"
+  url = "https://steamcommunity.com/id/m21248074/"
 
 [[menu.misc]]
   weight = 1
