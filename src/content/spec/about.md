@@ -1,49 +1,100 @@
+<img align="right" src="https://badges.frapsoft.com/os/v1/open-source.svg"></img>
 
-This website is built with the **Astro** framework using the [Mizuki](https://github.com/LyraVoid/Mizuki) theme.
+<h1 align="center">
 
-::github{repo="LyraVoid/Mizuki"}
+👋 Hi there, I'm [Cavey](https://m21248074.github.io)!
 
-## 🌟 Theme Features
+</h1>
 
-### 🎨 Design & User Experience
-- **Modern & Elegant Design** - Clean, minimalist interface with beautiful typography
-- **Fully Responsive** - Optimized for all devices from mobile to desktop
-- **Dark/Light Mode** - Automatic theme switching with smooth transitions
-- **Beautiful Typography** - Enhanced readability with JetBrains Mono font
-- **Smooth Animations** - Fluid page transitions and interactive elements
+![header](https://raw.githubusercontent.com/chiraag-kakar/chiraag-kakar/master/hadder.gif)
 
-### 🔍 Content & Search
-- **Advanced Search** - Powered by [Pagefind](https://pagefind.app/) for fast, accurate results
-- **Enhanced Markdown** - Extended syntax with code highlighting and math support
-- **Interactive Table of Contents** - Auto-scroll navigation for long articles
-- **RSS Feed Generation** - Stay updated with automatic feed generation
-- **Reading Time Estimation** - Know how long articles take to read
-- **Post Categorization** - Organize content with tags and categories
+<div align="center">
 
+Hi, I'm Tian Kai-Wei, a Applied AI & Enterprise Developer from Taiwan.
 
+</div>
 
-### 📱 Special Pages
-- **Anime Tracking Page** - Track your anime watching progress with ratings
-- **Friends Links Page** - Showcase friend websites with beautiful cards
-- **Diary/Moments Page** - Share life moments like social media posts
-- **Archive Page** - Organized timeline view of all posts
-- **About Page** - Customizable personal introduction (this page!)
+<samp>
 
-### 🛠 Technical Features
-- **Enhanced Code Blocks** - Powered by [Expressive Code](https://expressive-code.com/)
-- **Math Support** - LaTeX rendering with KaTeX for mathematical expressions
-- **Image Optimization** - PhotoSwipe gallery with lazy loading
-- **SEO Optimized** - Built-in sitemap and meta tags for better search visibility
-- **Performance Optimized** - Fast loading with caching and optimization
-- **Comment System Ready** - Integration support for Twikoo comments
+- 🌱 I’m currently learning *Redis* and *Docker*.
+- 🎿 Hobbies other than coding : Reading books or about Programming, Playing games on steam and Watching the Anime.
+- 🏗️ Looking to collaborate on more Open Source projects
+- 💖 Fun fact: I love to play games about magic such as [Wizard101](https://wizard101.com).
+- 💬 You can ask me about anything (**Note:** After googling it! 😜😌) [here](https://github.com/m21248074/m21248074/issues)
 
-### 🎯 Advanced Markdown Features
-- **Callouts & Admonitions** - Beautiful info boxes with `> [!NOTE]`, `> [!TIP]`, `> [!WARNING]`
-- **Mathematical Equations** - Write LaTeX math with `$inline$` and `$$block$$` syntax
-- **GitHub Cards** - Embed repository cards with `::github{repo="user/repo"}`
-- **Syntax Highlighting** - Advanced code highlighting with line numbers
-- **Copy Code Buttons** - Easy code copying functionality
+</samp>
 
----
+## A little more about me...
 
-*Built with ❤️ using Astro and inspired by modern web design principles.*
+```javascript
+var Cavey = { // I am a variable, rather than a constant.
+    pronouns: "he" | "him",
+    motto: "The Programmers of Tomorrow are the Wizards of the Future.",
+    blogUrl: "https://m21248074.github.io/",
+    code: ["C", "C++", "C#", "Java", "Python", "HTML5", "CSS3", "JavaScript ES6+", "PHP"],
+    askMeAbout: ["Web Dev", "Tech", "App Dev", "Game"],
+    technologies: {
+        front_end: ["Bootstrap", "JQuery", "React"],
+        back_end: ["Laravel", "ASP.NET Web API"],
+        database: ["MySQL", "Oracle DB"]
+    }
+}
+```
+
+I love connecting with people who have different IT skills so if you want to say hi, I'll be happy to meet you more! :)
+
+## 📊 GitHub Stats
+
+<img align="left" src="https://img.shields.io/github/followers/m21248074?style=social"></img>
+<img align="left" src="https://img.shields.io/github/stars/m21248074?style=social"></img>
+<img align="right" src="https://badges.pufler.dev/repos/m21248074"></img>
+<br/>
+
+### 🔥 Streak stats
+
+<div align="center">
+
+<img src="http://github-readme-streak-stats.herokuapp.com?user=m21248074&theme=dark"></img>
+
+</div>
+
+### 💻 GitHub Profile Stats
+
+<div align="center">
+
+<img width="450px" align="center" src="https://github-stats-extended.vercel.app/api/top-langs/?username=m21248074&theme=dark&layout=compact"/>
+<img width="450px" align="center" src="https://github-stats-extended.vercel.app/api?username=m21248074&show_icons=true&theme=dark"/>
+
+**Note:** Top languages is only a metric of the languages my public code consists of and doesn't reflect experience or skill level.
+
+</div>
+
+### ⚡ Recent GitHub Activity
+
+<div align="center">
+
+<img src="https://github-readme-activity-graph.vercel.app/graph?username=m21248074&bg_color=1F222E&color=F8D866&point=FFFFFF"></img>
+
+</div>
+
+### 🏆 GitHub Profile Trophy
+
+<div align="center">
+
+[![trophy](https://github-profile-trophy-tawny.vercel.app/?username=m21248074&theme=onedark)](https://github.com/ryo-ma/github-profile-trophy)
+
+</div>
+
+## Spotify Playing 🎧
+
+[![Spotify](https://novatorem-kyzbk7wxl-bardiesel.vercel.app/api/spotify)](https://open.spotify.com/user/31nqesksfjtohx4syraxnobdrlem)
+
+## Dev Joke For Special You
+
+<div align="center">
+
+![Jokes Card](https://readme-jokes.vercel.app/api)
+
+![snake svg](https://raw.githubusercontent.com/m21248074/m21248074/output/github-contribution-grid-snake.svg)
+
+</div>

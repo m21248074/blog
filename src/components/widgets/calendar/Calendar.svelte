@@ -114,7 +114,9 @@
 	// Functions
 	async function fetchCalendarData() {
 		try {
-			const res = await fetch("/api/calendar-data.json");
+			const res = await fetch(
+				`${import.meta.env.BASE_URL}api/calendar-data.json`,
+			);
 			const data = await res.json();
 			if (Array.isArray(data)) {
 				allPostsData = data;

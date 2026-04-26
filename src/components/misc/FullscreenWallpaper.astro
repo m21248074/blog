@@ -107,7 +107,7 @@ const renderGroups = [
 			<div class={`${group.containerClass} w-full h-full relative`} style="transform: translateZ(0);">
 				{group.images.map((src, index) => (
 					<img
-						src={src}
+						src={`${import.meta.env.BASE_URL}${src}`}
 						alt={`${group.key} wallpaper ${index + 1}`}
 						class={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${positionClass}`}
 						data-carousel-item={index}
