@@ -1,0 +1,2215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Cavey's Blog</title>
+  <subtitle>No description</subtitle>
+  <link href="https://m21248074.github.io/" rel="alternate" type="text/html"/>
+  <link href="https://m21248074.github.io/atom.xml" rel="self" type="application/atom+xml"/>
+  <id>https://m21248074.github.io/</id>
+  <updated>2026-04-26T15:23:49.428Z</updated>
+  <language>zh_TW</language>
+  <entry>
+    <title>[OverTheWire] Bandit Level 33 → Level 34</title>
+    <link href="https://m21248074.github.io/blog/posts/2025-01-25-post134318/" rel="alternate" type="text/html"/>
+    <id>https://m21248074.github.io/blog/posts/2025-01-25-post134318/</id>
+    <published>2025-01-25T05:43:18.000Z</published>
+    <updated>2025-01-25T05:43:18.000Z</updated>
+    <summary></summary>
+    <content type="html"><![CDATA[<p>&lt;!--more--&gt;</p>
+<h2>Level Goal</h2>
+<p><strong>At this moment, level 34 does not exist yet.</strong></p>
+<h2>My Answer (Step by step)</h2>
+<ol>
+<li>連線到伺服器並登入</li>
+</ol>
+<pre><code>ssh bandit33@bandit.labs.overthewire.org -p 2220
+</code></pre>
+<ol>
+<li>透過 ls 指令發現有一個 README.txt 檔案，透過 cat 指令讀取內容，得知我們已經通關!</li>
+</ol>
+<pre><code>ls -al
+cat README.txt
+# Congratulations on solving the last level of this game!
+
+# At this moment, there are no more levels to play in this game. However, we are constantly working
+# on new levels and will most likely expand this game with more levels soon.
+# Keep an eye out for an announcement on our usual communication channels!
+# In the meantime, you could play some of our other wargames.
+
+# If you have an idea for an awesome new level, please let us know!
+</code></pre>
+<p>到此，已通關目前 Bandit 的所有關卡! 期待之後的新關卡，謝謝收看!</p>
+<h2>Update WeChall Progress</h2>
+<p>Bandit 遊玩進度可以同步至 WeChall，這裡提供步驟，當然你必須先有 WeChall 帳號 :)</p>
+<ol>
+<li>
+<p>登入任意 Bandit 關卡</p>
+</li>
+<li>
+<p>設定以下變數，並透過 wechall 指令更新</p>
+</li>
+</ol>
+<pre><code>export WECHALLUSER="使用者名稱"
+export WECHALLTOKEN="使用者 Token"
+wechall
+</code></pre>
+<p>{{&lt; alert info &gt;}}
+Token 可至<a href="https://www.wechall.net/warboxes">這裡</a>取得<br />
+Bandit 進度可從<a href="https://www.wechall.net/3-levels-on-Bandit.html">這裡</a>查看
+{{&lt; /alert &gt;}}</p>
+]]></content>
+    <author>
+      <name>Cavey (凱維)</name>
+    </author>
+    <category term="資安筆記"></category>
+  </entry>
+  <entry>
+    <title>[OverTheWire] Bandit Level 32 → Level 33</title>
+    <link href="https://m21248074.github.io/blog/posts/2025-01-25-post100824/" rel="alternate" type="text/html"/>
+    <id>https://m21248074.github.io/blog/posts/2025-01-25-post100824/</id>
+    <published>2025-01-25T02:08:24.000Z</published>
+    <updated>2025-01-25T02:08:24.000Z</updated>
+    <summary></summary>
+    <content type="html"><![CDATA[<p>&lt;!--more--&gt;</p>
+<h2>Level Goal</h2>
+<p>After all this git stuff, it’s time for another escape. Good luck!</p>
+<h3>Commands you may need to solve this level</h3>
+<ul>
+<li>sh</li>
+<li>man</li>
+</ul>
+<h2>My Answer (Step by step)</h2>
+<ol>
+<li>連線到伺服器並登入</li>
+</ol>
+<pre><code>ssh bandit32@bandit.labs.overthewire.org -p 2220
+</code></pre>
+<ol>
+<li>登入後發現輸入的內容都被轉為大寫，並且提示沒有權限使用指令</li>
+</ol>
+<pre><code># WELCOME TO THE UPPERCASE SHELL
+ls
+# sh: 1: LS: Permission denied
+</code></pre>
+<ol>
+<li>UPPERCASE SHELL 並沒有處理數字與特殊符號，所以我們可以透過 $0 取得 shell 的名稱，進而離開 UPPERCASE SHELL</li>
+</ol>
+<pre><code>$0
+</code></pre>
+<ol>
+<li>透過 whoami 指令查看 shell 是以哪個使用者執行，發現為 bandit33</li>
+</ol>
+<pre><code>whoami
+</code></pre>
+<ol>
+<li>故我們可以透過 cat 指令直接取得 Level 33 密碼!</li>
+</ol>
+<pre><code>cat /etc/bandit_pass/bandit33
+</code></pre>
+]]></content>
+    <author>
+      <name>Cavey (凱維)</name>
+    </author>
+    <category term="資安筆記"></category>
+  </entry>
+  <entry>
+    <title>[OverTheWire] Bandit Level 31 → Level 32</title>
+    <link href="https://m21248074.github.io/blog/posts/2025-01-25-post094916/" rel="alternate" type="text/html"/>
+    <id>https://m21248074.github.io/blog/posts/2025-01-25-post094916/</id>
+    <published>2025-01-25T01:49:16.000Z</published>
+    <updated>2025-01-25T01:49:16.000Z</updated>
+    <summary></summary>
+    <content type="html"><![CDATA[<p>&lt;!--more--&gt;</p>
+<h2>Level Goal</h2>
+<p>There is a git repository at ssh://bandit31-git@localhost/home/bandit31-git/repo via the port 2220. The password for the user bandit31-git is the same as for the user bandit31.</p>
+<p>Clone the repository and find the password for the next level.</p>
+<h3>Commands you may need to solve this level</h3>
+<ul>
+<li>git</li>
+</ul>
+<h2>My Answer (Step by step)</h2>
+<ol>
+<li>連線到伺服器並登入</li>
+</ol>
+<pre><code>ssh bandit31@bandit.labs.overthewire.org -p 2220
+</code></pre>
+<ol>
+<li>透過 mktemp 指令產生暫存資料夾，並透過 cd 指令進入它，以便稍後 clone git repo</li>
+</ol>
+<pre><code>mktemp -d
+cd /tmp/tmp.Tc5YfqLCbF
+</code></pre>
+<ol>
+<li>透過 git 指令將 repo clone 下來</li>
+</ol>
+<pre><code>git clone ssh://bandit31-git@localhost:2220/home/bandit31-git/repo
+</code></pre>
+<ol>
+<li>透過 cd 指令進入 repo 資料夾，並透過 ls 指令查看資料夾內容</li>
+</ol>
+<pre><code>cd repo
+ls
+# README.md
+</code></pre>
+<ol>
+<li>透過 cat 指令讀取 README.md 檔案，發現沒有密碼，但有要求我們將一個檔案推到遠程 repo</li>
+</ol>
+<pre><code>cat README.md
+# This time your task is to push a file to the remote repository.
+
+# Details:
+#     File name: key.txt
+#     Content: 'May I come in?'
+#     Branch: master
+</code></pre>
+<ol>
+<li>透過 touch 指令建立檔案 key.txt，並透過 vim, vi, nano 等指令編輯該檔案</li>
+</ol>
+<pre><code>touch key.txt
+nano key.txt
+</code></pre>
+<ol>
+<li>透過 git status 指令查看 repo 情況，發現 git 沒有偵測到有新檔案，透過 ls 指令發現目錄還有一個 .gitignore</li>
+</ol>
+<pre><code>git status
+ls -al
+</code></pre>
+<ol>
+<li>透過 cat 指令讀取 .gitignore 內容，發現忽略所有 .txt 檔。</li>
+</ol>
+<pre><code>cat .gitignore
+# *.txt
+</code></pre>
+<ol>
+<li>透過 rm 指令將其刪除，並重新透過 git status 指令查看情況，發現 git 有偵測到 repo 發生變化</li>
+</ol>
+<pre><code>rm .gitignore
+git status
+</code></pre>
+<ol>
+<li>透過 git add 指令將所有變化從工作目錄移至暫存區，並透過 git commit 指令把暫存區的內容移至儲存庫(repo)</li>
+</ol>
+<pre><code>git add .
+git commit -m "add key.txt"
+</code></pre>
+<ol>
+<li>透過 git push 指令將本地 repo 與遠程 repo 同步，即可獲取 Level 32 密碼!</li>
+</ol>
+<pre><code>git push
+</code></pre>
+]]></content>
+    <author>
+      <name>Cavey (凱維)</name>
+    </author>
+    <category term="資安筆記"></category>
+  </entry>
+  <entry>
+    <title>[OverTheWire] Bandit Level 30 → Level 31</title>
+    <link href="https://m21248074.github.io/blog/posts/2025-01-24-post165003/" rel="alternate" type="text/html"/>
+    <id>https://m21248074.github.io/blog/posts/2025-01-24-post165003/</id>
+    <published>2025-01-24T08:50:03.000Z</published>
+    <updated>2025-01-24T08:50:03.000Z</updated>
+    <summary></summary>
+    <content type="html"><![CDATA[<p>&lt;!--more--&gt;</p>
+<h2>Level Goal</h2>
+<p>There is a git repository at ssh://bandit30-git@localhost/home/bandit30-git/repo via the port 2220. The password for the user bandit30-git is the same as for the user bandit30.</p>
+<p>Clone the repository and find the password for the next level.</p>
+<h3>Commands you may need to solve this level</h3>
+<ul>
+<li>git</li>
+</ul>
+<h2>My Answer (Step by step)</h2>
+<ol>
+<li>連線到伺服器並登入</li>
+</ol>
+<pre><code>ssh bandit30@bandit.labs.overthewire.org -p 2220
+</code></pre>
+<ol>
+<li>透過 mktemp 指令產生暫存資料夾，並透過 cd 指令進入它，以便稍後 clone git repo</li>
+</ol>
+<pre><code>mktemp -d
+cd /tmp/tmp.j06e86YteI
+</code></pre>
+<ol>
+<li>透過 git 指令將 repo clone 下來</li>
+</ol>
+<pre><code>git clone ssh://bandit30-git@localhost:2220/home/bandit30-git/repo
+</code></pre>
+<ol>
+<li>透過 cd 指令進入 repo 資料夾，並透過 ls 指令查看資料夾內容</li>
+</ol>
+<pre><code>cd repo
+ls
+# README.md
+</code></pre>
+<ol>
+<li>透過 cat 指令讀取 README.md 檔案，發現沒有密碼 :(</li>
+</ol>
+<pre><code>cat README.md
+# just an epmty file... muahaha
+</code></pre>
+<ol>
+<li>透過 git tag 指令發現有一個 secret tag</li>
+</ol>
+<pre><code>git tag
+# secret
+</code></pre>
+<ol>
+<li>透過 git show 指令將 secret tag 的內容呈現出來，發現 Level 31 密碼!</li>
+</ol>
+<pre><code>git show secret
+</code></pre>
+]]></content>
+    <author>
+      <name>Cavey (凱維)</name>
+    </author>
+    <category term="資安筆記"></category>
+  </entry>
+  <entry>
+    <title>[OverTheWire] Bandit Level 29 → Level 30</title>
+    <link href="https://m21248074.github.io/blog/posts/2025-01-24-post162929/" rel="alternate" type="text/html"/>
+    <id>https://m21248074.github.io/blog/posts/2025-01-24-post162929/</id>
+    <published>2025-01-24T08:29:29.000Z</published>
+    <updated>2025-01-24T08:29:29.000Z</updated>
+    <summary></summary>
+    <content type="html"><![CDATA[<p>&lt;!--more--&gt;</p>
+<h2>Level Goal</h2>
+<p>There is a git repository at ssh://bandit29-git@localhost/home/bandit29-git/repo via the port 2220. The password for the user bandit29-git is the same as for the user bandit29.</p>
+<p>Clone the repository and find the password for the next level.</p>
+<h3>Commands you may need to solve this level</h3>
+<ul>
+<li>git</li>
+</ul>
+<h2>My Answer (Step by step)</h2>
+<ol>
+<li>連線到伺服器並登入</li>
+</ol>
+<pre><code>ssh bandit29@bandit.labs.overthewire.org -p 2220
+</code></pre>
+<ol>
+<li>透過 mktemp 指令產生暫存資料夾，並透過 cd 指令進入它，以便稍後 clone git repo</li>
+</ol>
+<pre><code>mktemp -d
+cd /tmp/tmp.donk1bH1gq
+</code></pre>
+<ol>
+<li>透過 git 指令將 repo clone 下來</li>
+</ol>
+<pre><code>git clone ssh://bandit29-git@localhost:2220/home/bandit29-git/repo
+</code></pre>
+<ol>
+<li>透過 cd 指令進入 repo 資料夾，並透過 ls 指令查看資料夾內容</li>
+</ol>
+<pre><code>cd repo
+ls
+# README.md
+</code></pre>
+<ol>
+<li>透過 cat 指令讀取 README.md 檔案，發現沒有密碼 :(</li>
+</ol>
+<pre><code>cat README.md
+# # Bandit Notes
+# Some notes for bandit30 of bandit.
+
+# ## credentials
+
+# - username: bandit30
+# - password: &lt;no passwords in production!&gt;
+</code></pre>
+<p>{{&lt; alert info &gt;}}
+根據指令結果說明，當前分支可能為生產分支(production branch)，密碼可能藏在開發分支(development branch)中
+{{&lt; /alert &gt;}}</p>
+<ol>
+<li>透過 git branch 指令查看該 repo 有哪些分支</li>
+</ol>
+<pre><code>git branch -a
+# * master
+#   remotes/origin/HEAD -&gt; origin/master
+#   remotes/origin/dev
+#   remotes/origin/master
+#   remotes/origin/sploits-dev
+</code></pre>
+<ol>
+<li>透過 git checkout 指令切換分支至 remotes/origin/dev，並重新透過 cat 指令讀取 README.md 檔案，發現 Level 30 密碼!</li>
+</ol>
+<pre><code>git checkout remotes/origin/dev
+cat README.md
+# # Bandit Notes
+# Some notes for bandit30 of bandit.
+
+# ## credentials
+
+# - username: bandit30
+# - password: qp30ex3VLz5MDG1n91YowTv4Q8l7CDZL
+</code></pre>
+]]></content>
+    <author>
+      <name>Cavey (凱維)</name>
+    </author>
+    <category term="資安筆記"></category>
+  </entry>
+  <entry>
+    <title>[OverTheWire] Bandit Level 28 → Level 29</title>
+    <link href="https://m21248074.github.io/blog/posts/2025-01-24-post161852/" rel="alternate" type="text/html"/>
+    <id>https://m21248074.github.io/blog/posts/2025-01-24-post161852/</id>
+    <published>2025-01-24T08:18:52.000Z</published>
+    <updated>2025-01-24T08:18:52.000Z</updated>
+    <summary></summary>
+    <content type="html"><![CDATA[<p>&lt;!--more--&gt;</p>
+<h2>Level Goal</h2>
+<p>There is a git repository at ssh://bandit28-git@localhost/home/bandit28-git/repo via the port 2220. The password for the user bandit28-git is the same as for the user bandit28.</p>
+<p>Clone the repository and find the password for the next level.</p>
+<h3>Commands you may need to solve this level</h3>
+<ul>
+<li>git</li>
+</ul>
+<h2>My Answer (Step by step)</h2>
+<ol>
+<li>連線到伺服器並登入</li>
+</ol>
+<pre><code>ssh bandit28@bandit.labs.overthewire.org -p 2220
+</code></pre>
+<ol>
+<li>透過 mktemp 指令產生暫存資料夾，並透過 cd 指令進入它，以便稍後 clone git repo</li>
+</ol>
+<pre><code>mktemp -d
+cd /tmp/tmp.7nsZP0LSGd
+</code></pre>
+<ol>
+<li>透過 git 指令將 repo clone 下來</li>
+</ol>
+<pre><code>git clone ssh://bandit28-git@localhost:2220/home/bandit28-git/repo
+</code></pre>
+<ol>
+<li>透過 cd 指令進入 repo 資料夾，並透過 ls 指令查看資料夾內容</li>
+</ol>
+<pre><code>cd repo
+ls
+# README.md
+</code></pre>
+<ol>
+<li>透過 cat 指令讀取 README.md 檔案，發現沒有密碼 :(</li>
+</ol>
+<pre><code>cat README.md
+# # Bandit Notes
+# Some notes for level29 of bandit.
+
+# ## credentials
+
+# - username: bandit29
+# - password: xxxxxxxxxx
+</code></pre>
+<ol>
+<li>透過 git log 指令可以取得 repo 歷史版本，發現有多個版本</li>
+</ol>
+<pre><code>git log
+</code></pre>
+<p>{{&lt; alert info &gt;}}
+根據指令結果說明，此 repo 有三個 commit，根據每一個 commit message 的描述，密碼最有可能藏在第二個 commit 中
+{{&lt; /alert &gt;}}</p>
+<ol>
+<li>透過 git checkout 指令切換版本，並重新透過 cat 指令讀取 README.md 檔案，發現 Level 29 密碼!</li>
+</ol>
+<pre><code>git checkout 3621d
+cat README.md
+</code></pre>
+]]></content>
+    <author>
+      <name>Cavey (凱維)</name>
+    </author>
+    <category term="資安筆記"></category>
+  </entry>
+  <entry>
+    <title>[OverTheWire] Bandit Level 27 → Level 28</title>
+    <link href="https://m21248074.github.io/blog/posts/2025-01-24-post155609/" rel="alternate" type="text/html"/>
+    <id>https://m21248074.github.io/blog/posts/2025-01-24-post155609/</id>
+    <published>2025-01-24T07:56:09.000Z</published>
+    <updated>2025-01-24T07:56:09.000Z</updated>
+    <summary></summary>
+    <content type="html"><![CDATA[<p>&lt;!--more--&gt;</p>
+<h2>Level Goal</h2>
+<p>There is a git repository at ssh://bandit27-git@localhost/home/bandit27-git/repo via the port 2220. The password for the user bandit27-git is the same as for the user bandit27.</p>
+<p>Clone the repository and find the password for the next level.</p>
+<h3>Commands you may need to solve this level</h3>
+<ul>
+<li>git</li>
+</ul>
+<h2>My Answer (Step by step)</h2>
+<ol>
+<li>連線到伺服器並登入</li>
+</ol>
+<pre><code>ssh bandit27@bandit.labs.overthewire.org -p 2220
+</code></pre>
+<ol>
+<li>透過 mktemp 指令產生暫存資料夾，並透過 cd 指令進入它，以便稍後 clone git repo</li>
+</ol>
+<pre><code>mktemp -d
+cd /tmp/tmp.dN2OW0Zbrc
+</code></pre>
+<ol>
+<li>透過 git 指令將 repo clone 下來</li>
+</ol>
+<pre><code>git clone ssh://bandit27-git@localhost:2220/home/bandit27-git/repo
+</code></pre>
+<ol>
+<li>透過 cd 指令進入 repo 資料夾，並透過 ls 指令查看資料夾內容</li>
+</ol>
+<pre><code>cd repo
+ls
+# README
+</code></pre>
+<ol>
+<li>透過 cat 指令讀取 README 檔案，即可獲得 Level 28 密碼!</li>
+</ol>
+<pre><code>cat README
+</code></pre>
+]]></content>
+    <author>
+      <name>Cavey (凱維)</name>
+    </author>
+    <category term="資安筆記"></category>
+  </entry>
+  <entry>
+    <title>[OverTheWire] Bandit Level 26 → Level 27</title>
+    <link href="https://m21248074.github.io/blog/posts/2025-01-24-post154555/" rel="alternate" type="text/html"/>
+    <id>https://m21248074.github.io/blog/posts/2025-01-24-post154555/</id>
+    <published>2025-01-24T07:45:55.000Z</published>
+    <updated>2025-01-24T07:45:55.000Z</updated>
+    <summary></summary>
+    <content type="html"><![CDATA[<p>&lt;!--more--&gt;</p>
+<h2>Level Goal</h2>
+<p>Good job getting a shell! Now hurry and grab the password for bandit27!</p>
+<h3>Commands you may need to solve this level</h3>
+<ul>
+<li>ls</li>
+</ul>
+<h2>My Answer (Step by step)</h2>
+<ol>
+<li>連線到伺服器並登入，登入後需要一系列的步驟才可以進入 shell，請參考 [Level 25 → Level 26]({{&lt; ref "/posts/2025-01-24-post144357.md" &gt;}})</li>
+</ol>
+<pre><code>ssh bandit26@bandit.labs.overthewire.org -p 2220
+</code></pre>
+<ol>
+<li>透過 ls 指令可以發現目錄中有一個檔案 bandit27-do，可以直接使用該檔案查看如何使用它</li>
+</ol>
+<pre><code>ls
+./bandit27-do
+# Run a command as another user.
+#   Example: ./bandit27-do id
+</code></pre>
+<p>{{&lt; alert info &gt;}}
+根據程式結果說明，我們可以透過該檔案以使用者 bandit27 來執行指令
+{{&lt; /alert &gt;}}</p>
+<ol>
+<li>透過 bandit27-do 檔案使用 cat 指令來呈現 Level 27 密碼!</li>
+</ol>
+<pre><code>./bandit27-do cat /etc/bandit_pass/bandit27
+</code></pre>
+]]></content>
+    <author>
+      <name>Cavey (凱維)</name>
+    </author>
+    <category term="資安筆記"></category>
+  </entry>
+  <entry>
+    <title>[OverTheWire] Bandit Level 25 → Level 26</title>
+    <link href="https://m21248074.github.io/blog/posts/2025-01-24-post144357/" rel="alternate" type="text/html"/>
+    <id>https://m21248074.github.io/blog/posts/2025-01-24-post144357/</id>
+    <published>2025-01-24T06:43:57.000Z</published>
+    <updated>2025-01-24T06:43:57.000Z</updated>
+    <summary></summary>
+    <content type="html"><![CDATA[<p>&lt;!--more--&gt;</p>
+<h2>Level Goal</h2>
+<p>Logging in to bandit26 from bandit25 should be fairly easy… The shell for user bandit26 is not <strong>/bin/bash</strong>, but something else. Find out what it is, how it works and how to break out of it.</p>
+<p>NOTE: if you’re a Windows user and typically use Powershell to ssh into bandit: Powershell is known to cause issues with the intended solution to this level. You should use command prompt instead.</p>
+<h3>Commands you may need to solve this level</h3>
+<ul>
+<li>ssh</li>
+<li>cat</li>
+<li>more</li>
+<li>vi</li>
+<li>ls</li>
+<li>id</li>
+<li>pwd</li>
+</ul>
+<h2>My Answer (Step by step)</h2>
+<p>{{&lt; alert warning &gt;}}
+根據筆者嘗試，使用 Powershell 會無法完成該 Level，建議讀者聽從題目的建議使用 cmd
+{{&lt; /alert &gt;}}</p>
+<ol>
+<li>連線到伺服器並登入</li>
+</ol>
+<pre><code>ssh bandit25@bandit.labs.overthewire.org -p 2220
+</code></pre>
+<ol>
+<li>透過 ls 指令可以發現目錄中有 bandit26 的 ssh 金鑰檔</li>
+</ol>
+<pre><code>ls
+# bandit26.sshkey
+</code></pre>
+<ol>
+<li>透過 ssh 指令連線至 bandit26</li>
+</ol>
+<pre><code>ssh bandit26@localhost -p 2220 -i bandit26.sshkey
+</code></pre>
+<p>{{&lt; alert info &gt;}}
+連線後可以發現馬上被關閉
+{{&lt; /alert &gt;}}</p>
+<ol>
+<li>/etc/passwd 會記錄系統上的使用者登入 shell，故透過 cat 與 grep 指令找出 bandit26 的登入 shell</li>
+</ol>
+<pre><code>cat /etc/passwd | grep bandit26
+# bandit26:x:11026:11026:bandit level 26:/home/bandit26:/usr/bin/showtext
+</code></pre>
+<p>{{&lt; alert info &gt;}}
+根據指令結果，可以發現 bandit26 使用的登入 shell 為 /usr/bin/showtext
+{{&lt; /alert &gt;}}</p>
+<ol>
+<li>透過 cat 指令查看 /usr/bin/showtext 內容</li>
+</ol>
+<pre><code>cat /usr/bin/showtext
+# #!/bin/sh
+
+# export TERM=linux
+
+# exec more ~/text.txt
+# exit 0
+</code></pre>
+<p>{{&lt; alert info &gt;}}
+根據指令結果，可以發現登入 bandit26 後會執行 more 指令並立即離開(exit 0)
+我們可以盡可能將視窗變小，使 more 指令進入互動模式
+{{&lt; /alert &gt;}}</p>
+<ol>
+<li>在將終端機視窗大小盡可能變小後，重新透過 ssh 指令連線至 bandit26</li>
+</ol>
+<pre><code>ssh bandit26@localhost -p 2220 -i bandit26.sshkey
+</code></pre>
+<p>{{&lt; alert info &gt;}}
+當出現 - - more - - (XX%) 即代表成功進入互動模式，此時可以將視窗放大
+{{&lt; /alert &gt;}}</p>
+<ol>
+<li>我們可以按 V 進入編輯器，並按 Esc 退出插入模式，並透過 set 指令重新設定使用者 shell，並透過 shell 指令進入 bash</li>
+</ol>
+<pre><code>:set shell=/bin/bash
+:shell
+</code></pre>
+<ol>
+<li>透過 cat 指令即可獲得 Level 26 密碼</li>
+</ol>
+<pre><code>cat /etc/bandit_pass/bandit26
+</code></pre>
+<p>{{&lt; alert warning &gt;}}
+筆者建議讀者若要繼續解關卡，不用登出，不然需要重做上述步驟才能再次進入 Level 26
+{{&lt; /alert &gt;}}</p>
+]]></content>
+    <author>
+      <name>Cavey (凱維)</name>
+    </author>
+    <category term="資安筆記"></category>
+  </entry>
+  <entry>
+    <title>[OverTheWire] Bandit Level 24 → Level 25</title>
+    <link href="https://m21248074.github.io/blog/posts/2025-01-24-post141801/" rel="alternate" type="text/html"/>
+    <id>https://m21248074.github.io/blog/posts/2025-01-24-post141801/</id>
+    <published>2025-01-24T06:18:01.000Z</published>
+    <updated>2025-01-24T06:18:01.000Z</updated>
+    <summary></summary>
+    <content type="html"><![CDATA[<p>&lt;!--more--&gt;</p>
+<h2>Level Goal</h2>
+<p>A daemon is listening on port 30002 and will give you the password for bandit25 if given the password for bandit24 and a secret numeric 4-digit pincode. There is no way to retrieve the pincode except by going through all of the 10000 combinations, called brute-forcing.
+You do not need to create new connections each time</p>
+<h2>My Answer (Step by step)</h2>
+<ol>
+<li>連線到伺服器並登入</li>
+</ol>
+<pre><code>ssh bandit24@bandit.labs.overthewire.org -p 2220
+</code></pre>
+<ol>
+<li>透過 mktemp 指令產生暫存資料夾，並透過 cd 指令進入它</li>
+</ol>
+<pre><code>mktemp -d
+cd /tmp/tmp.xs599rbycC
+</code></pre>
+<ol>
+<li>透過 vim, vi, nano 等指令產生稍後要執行的腳本檔，並透過 chmod 指令修改權限以便執行</li>
+</ol>
+<pre><code>nano a.sh
+</code></pre>
+<p>a.sh</p>
+<pre><code>#!/bin/bash
+PWD='gb8KRRCsshuZXI0tUuR6ypOFjiZbf3G8'
+for n in `seq 1 9999`;
+do
+    echo "$PWD $n"
+done | nc localhost 30002
+</code></pre>
+<pre><code>chmod 777 -R /tmp/tmp.xs599rbycC
+</code></pre>
+<ol>
+<li>執行它，即可獲得 Level 25 密碼!</li>
+</ol>
+<pre><code>./a.sh
+# Wrong! Please enter the correct current password and pincode. Try again.
+# Wrong! Please enter the correct current password and pincode. Try again.
+# Wrong! Please enter the correct current password and pincode. Try again.
+# Wrong! Please enter the correct current password and pincode. Try again.
+# Wrong! Please enter the correct current password and pincode. Try again.
+# Correct!
+# The password of user bandit25 is iCi86ttT4KSNe1armKiwbQNmB3YJP3q4
+</code></pre>
+]]></content>
+    <author>
+      <name>Cavey (凱維)</name>
+    </author>
+    <category term="資安筆記"></category>
+  </entry>
+  <entry>
+    <title>[OverTheWire] Bandit Level 23 → Level 24</title>
+    <link href="https://m21248074.github.io/blog/posts/2025-01-24-post114149/" rel="alternate" type="text/html"/>
+    <id>https://m21248074.github.io/blog/posts/2025-01-24-post114149/</id>
+    <published>2025-01-24T03:41:49.000Z</published>
+    <updated>2025-01-24T03:41:49.000Z</updated>
+    <summary></summary>
+    <content type="html"><![CDATA[<p>&lt;!--more--&gt;</p>
+<h2>Level Goal</h2>
+<p>A program is running automatically at regular intervals from <strong>cron</strong>, the time-based job scheduler. Look in <strong>/etc/cron.d/</strong> */ for the configuration and see what command is being executed.</p>
+<p><strong>NOTE</strong>: This level requires you to create your own first shell-script. This is a very big step and you should be proud of yourself when you beat this level!</p>
+<p><strong>NOTE 2</strong>: Keep in mind that your shell script is removed once executed, so you may want to keep a copy around…</p>
+<h3>Commands you may need to solve this level</h3>
+<ul>
+<li>chmod</li>
+<li>cron</li>
+<li>crontab</li>
+<li>crontab(5) (use “man 5 crontab” to access this)</li>
+</ul>
+<h2>My Answer (Step by step)</h2>
+<ol>
+<li>連線到伺服器並登入</li>
+</ol>
+<pre><code>ssh bandit23@bandit.labs.overthewire.org -p 2220
+</code></pre>
+<ol>
+<li>透過 cd 與 ls 指令前往 /etc/cron.d 目錄查看有哪些排程工作</li>
+</ol>
+<pre><code>cd /etc/cron.d
+ls -al
+</code></pre>
+<p>{{&lt; alert info &gt;}}
+根據指令結果，發現有一個檔案 cronjob_bandit24 名稱跟下一等級相關
+{{&lt; /alert &gt;}}</p>
+<ol>
+<li>透過 cat 指令將檔案 cronjob_bandit24 內容呈現出來</li>
+</ol>
+<pre><code>cat cronjob_bandit24
+# @reboot bandit24 /usr/bin/cronjob_bandit24.sh &amp;&gt; /dev/null
+# * * * * * bandit24 /usr/bin/cronjob_bandit24.sh &amp;&gt; /dev/null
+</code></pre>
+<p>{{&lt; alert info &gt;}}
+根據指令結果，發現此工作會執行 /usr/bin/cronjob_bandit24.sh
+{{&lt; /alert &gt;}}</p>
+<ol>
+<li>透過 cat 指令將 sh script 呈現出來</li>
+</ol>
+<pre><code>cat /usr/bin/cronjob_bandit24.sh
+# #!/bin/bash
+
+# myname=$(whoami)
+
+# cd /var/spool/$myname/foo
+# echo "Executing and deleting all scripts in /var/spool/$myname/foo:"
+# for i in * .*;
+# do
+#     if [ "$i" != "." -a "$i" != ".." ];
+#     then
+#         echo "Handling $i"
+#         owner="$(stat --format "%U" ./$i)"
+#         if [ "${owner}" = "bandit23" ]; then
+#             timeout -s 9 60 ./$i
+#         fi
+#         rm -f ./$i
+#     fi
+# done
+</code></pre>
+<p>{{&lt; alert info &gt;}}
+根據指令結果，發現會執行並刪除所有在 /var/spool/bandit24/foo 的 script，所以我們可以在裡面寫一個獲得 bandit24 密碼的 script
+{{&lt; /alert &gt;}}</p>
+<ol>
+<li>透過 mktemp 與 cd 指令產生暫存資料夾並進入它</li>
+</ol>
+<pre><code>mktemp -d
+cd /tmp/tmp.2ZUZlHBJ3d
+</code></pre>
+<ol>
+<li>透過 touch 指令產生腳本檔與密碼輸出檔，並透過 chmod 指令修改權限讓排程工作可以順利執行腳本與寫入密碼</li>
+</ol>
+<pre><code>touch a.sh
+touch password.txt
+chmod 777 -R /tmp/tmp.2ZUZlHBJ3d
+</code></pre>
+<ol>
+<li>透過 vim, vi, nano 等指令編輯 a.sh script</li>
+</ol>
+<pre><code>nano a.sh
+</code></pre>
+<p>a.sh</p>
+<pre><code>#!/bin/bash
+cat /etc/bandit_pass/bandit24 &gt; /tmp/tmp.2ZUZlHBJ3d/password.txt
+</code></pre>
+<ol>
+<li>透過 cp 指令將腳本檔放入指定目錄，並等待它執行</li>
+</ol>
+<pre><code>cp a.sh /var/spool/bandit24/foo/a.sh
+</code></pre>
+<ol>
+<li>約等一分鐘後，透過 cat 指令獲得 Level 24 密碼!</li>
+</ol>
+<pre><code>cat password.txt
+</code></pre>
+]]></content>
+    <author>
+      <name>Cavey (凱維)</name>
+    </author>
+    <category term="資安筆記"></category>
+  </entry>
+  <entry>
+    <title>[OverTheWire] Bandit Level 22 → Level 23</title>
+    <link href="https://m21248074.github.io/blog/posts/2025-01-24-post111536/" rel="alternate" type="text/html"/>
+    <id>https://m21248074.github.io/blog/posts/2025-01-24-post111536/</id>
+    <published>2025-01-24T03:15:36.000Z</published>
+    <updated>2025-01-24T03:15:36.000Z</updated>
+    <summary></summary>
+    <content type="html"><![CDATA[<p>&lt;!--more--&gt;</p>
+<h2>Level Goal</h2>
+<p>A program is running automatically at regular intervals from <strong>cron</strong>, the time-based job scheduler. Look in <strong>/etc/cron.d/</strong> for the configuration and see what command is being executed.</p>
+<p><strong>NOTE</strong>: Looking at shell scripts written by other people is a very useful skill. The script for this level is intentionally made easy to read. If you are having problems understanding what it does, try executing it to see the debug information it prints.</p>
+<h3>Commands you may need to solve this level</h3>
+<ul>
+<li>cron</li>
+<li>crontab</li>
+<li>crontab(5) (use “man 5 crontab” to access this)</li>
+</ul>
+<h2>My Answer (Step by step)</h2>
+<ol>
+<li>連線到伺服器並登入</li>
+</ol>
+<pre><code>ssh bandit22@bandit.labs.overthewire.org -p 2220
+</code></pre>
+<ol>
+<li>透過 cd 與 ls 指令前往 /etc/cron.d 目錄查看有哪些排程工作</li>
+</ol>
+<pre><code>cd /etc/cron.d
+ls -al
+</code></pre>
+<p>{{&lt; alert info &gt;}}
+根據指令結果，發現有一個檔案 cronjob_bandit23 名稱跟下一等級相關
+{{&lt; /alert &gt;}}</p>
+<ol>
+<li>透過 cat 指令將檔案 cronjob_bandit23 內容呈現出來</li>
+</ol>
+<pre><code>cat cronjob_bandit23
+# @reboot bandit23 /usr/bin/cronjob_bandit23.sh  &amp;&gt; /dev/null
+# * * * * * bandit23 /usr/bin/cronjob_bandit23.sh  &amp;&gt; /dev/null
+</code></pre>
+<p>{{&lt; alert info &gt;}}
+根據指令結果，發現此工作會執行 /usr/bin/cronjob_bandit23.sh
+{{&lt; /alert &gt;}}</p>
+<ol>
+<li>透過 cat 指令將 sh script 呈現出來</li>
+</ol>
+<pre><code>cat /usr/bin/cronjob_bandit23.sh
+# #!/bin/bash
+
+# myname=$(whoami)
+# mytarget=$(echo I am user $myname | md5sum | cut -d ' ' -f 1)
+
+# echo "Copying passwordfile /etc/bandit_pass/$myname to /tmp/$mytarget"
+
+# cat /etc/bandit_pass/$myname &gt; /tmp/$mytarget
+</code></pre>
+<p>{{&lt; alert info &gt;}}
+根據指令結果，發現密碼被複製到 /tmp/$mytarget，而 $mytarget 則為 echo I am user $myname | md5sum | cut -d ' ' -f 1 的指令結果，其中的 $myname 又是 whoami 的指令結果
+{{&lt; /alert &gt;}}</p>
+<ol>
+<li>透過 whoami 指令瞭解 $myname 應填入內容</li>
+</ol>
+<pre><code>whoami
+# bandit22
+</code></pre>
+<p>{{&lt; alert info &gt;}}
+由於我們要得到的是 Level 23 密碼，所以 $name 應填入 bandit23
+{{&lt; /alert &gt;}}</p>
+<ol>
+<li>執行 $mytarget 所示的指令來得知其內容</li>
+</ol>
+<pre><code>echo I am user bandit23 | md5sum | cut -d ' ' -f 1
+# 8ca319486bfbbc3663ea0fbe81326349
+</code></pre>
+<p>{{&lt; alert info &gt;}}
+根據指令結果，發現密碼被複製到 /tmp/8ca319486bfbbc3663ea0fbe81326349
+{{&lt; /alert &gt;}}</p>
+<ol>
+<li>透過 cat 指令將 Level 23 密碼呈現出來!</li>
+</ol>
+<pre><code>cat /tmp/8ca319486bfbbc3663ea0fbe81326349
+</code></pre>
+]]></content>
+    <author>
+      <name>Cavey (凱維)</name>
+    </author>
+    <category term="資安筆記"></category>
+  </entry>
+  <entry>
+    <title>[OverTheWire] Bandit Level 21 → Level 22</title>
+    <link href="https://m21248074.github.io/blog/posts/2025-01-24-post102815/" rel="alternate" type="text/html"/>
+    <id>https://m21248074.github.io/blog/posts/2025-01-24-post102815/</id>
+    <published>2025-01-24T02:28:15.000Z</published>
+    <updated>2025-01-24T02:28:15.000Z</updated>
+    <summary></summary>
+    <content type="html"><![CDATA[<p>&lt;!--more--&gt;</p>
+<h2>Level Goal</h2>
+<p>A program is running automatically at regular intervals from <strong>cron</strong>, the time-based job scheduler. Look in <strong>/etc/cron.d/</strong> */ for the configuration and see what command is being executed.</p>
+<h3>Commands you may need to solve this level</h3>
+<ul>
+<li>cron</li>
+<li>crontab</li>
+<li>crontab(5) (use “man 5 crontab” to access this)</li>
+</ul>
+<h2>My Answer (Step by step)</h2>
+<ol>
+<li>連線到伺服器並登入</li>
+</ol>
+<pre><code>ssh bandit21@bandit.labs.overthewire.org -p 2220
+</code></pre>
+<ol>
+<li>透過 cd 與 ls 指令前往 /etc/cron.d 目錄查看有哪些排程工作</li>
+</ol>
+<pre><code>cd /etc/cron.d
+ls -al
+</code></pre>
+<p>{{&lt; alert info &gt;}}
+根據指令結果，發現有一個檔案 cronjob_bandit22 名稱跟下一等級相關
+{{&lt; /alert &gt;}}</p>
+<ol>
+<li>透過 cat 指令將檔案 cronjob_bandit22 內容呈現出來</li>
+</ol>
+<pre><code>cat cronjob_bandit22
+# @reboot bandit22 /usr/bin/cronjob_bandit22.sh &amp;&gt; /dev/null
+# * * * * * bandit22 /usr/bin/cronjob_bandit22.sh &amp;&gt; /dev/null
+</code></pre>
+<p>{{&lt; alert info &gt;}}
+根據指令結果，發現此工作會執行 /usr/bin/cronjob_bandit22.sh
+{{&lt; /alert &gt;}}</p>
+<ol>
+<li>透過 cat 指令將 sh script 呈現出來</li>
+</ol>
+<pre><code>cat /usr/bin/cronjob_bandit22.sh
+# #!/bin/bash
+# chmod 644 /tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv
+# cat /etc/bandit_pass/bandit22 &gt; /tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv
+</code></pre>
+<p>{{&lt; alert info &gt;}}
+根據指令結果，發現密碼被複製到 /tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv
+{{&lt; /alert &gt;}}</p>
+<ol>
+<li>透過 cat 指令將 Level 22 密碼呈現出來!</li>
+</ol>
+<pre><code>cat /tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv
+</code></pre>
+]]></content>
+    <author>
+      <name>Cavey (凱維)</name>
+    </author>
+    <category term="資安筆記"></category>
+  </entry>
+  <entry>
+    <title>[OverTheWire] Bandit Level 20 → Level 21</title>
+    <link href="https://m21248074.github.io/blog/posts/2025-01-24-post094641/" rel="alternate" type="text/html"/>
+    <id>https://m21248074.github.io/blog/posts/2025-01-24-post094641/</id>
+    <published>2025-01-24T01:46:41.000Z</published>
+    <updated>2025-01-24T01:46:41.000Z</updated>
+    <summary></summary>
+    <content type="html"><![CDATA[<p>&lt;!--more--&gt;</p>
+<h2>Level Goal</h2>
+<p>There is a setuid binary in the homedirectory that does the following: it makes a connection to localhost on the port you specify as a commandline argument. It then reads a line of text from the connection and compares it to the password in the previous level (bandit20). If the password is correct, it will transmit the password for the next level (bandit21).</p>
+<p><strong>NOTE</strong>: Try connecting to your own network daemon to see if it works as you think</p>
+<h3>Commands you may need to solve this level</h3>
+<ul>
+<li>ssh</li>
+<li>nc</li>
+<li>cat</li>
+<li>bash</li>
+<li>screen</li>
+<li>tmux</li>
+<li>Unix ‘job control’ (bg, fg, jobs, &amp;, CTRL-Z, …)</li>
+</ul>
+<h2>My Answer (Step by step)</h2>
+<ol>
+<li>連線到伺服器並登入</li>
+</ol>
+<pre><code>ssh bandit20@bandit.labs.overthewire.org -p 2220
+</code></pre>
+<ol>
+<li>透過 ls 指令可以發現目錄中有一個檔案 suconnect，可以直接使用該檔案查看如何使用它</li>
+</ol>
+<pre><code>ls
+./suconnect
+# Usage: ./suconnect &lt;portnumber&gt;
+# This program will connect to the given port on localhost using TCP. 
+# If it receives the correct password from the other side, the next password is transmitted back.
+</code></pre>
+<p>{{&lt; alert info &gt;}}
+根據程式結果說明，該檔案會連線到指定 port 上架設的 TCP 服務，並且如果從該服務收到當前密碼，即可獲得下一等級密碼
+{{&lt; /alert &gt;}}</p>
+<ol>
+<li>由於我們需要兩個 terminal 來分別架設服務與使用 suconnect 檔案，故透過 screen 指令來完成需求</li>
+</ol>
+<pre><code>screen
+</code></pre>
+<ol>
+<li>透過 nc 指令在 9487 port 建立 TCP 服務，並按下 Ctrl + A 後，再按下 D 鍵（detach）將 screen 卸離</li>
+</ol>
+<pre><code>nc -l localhost 9487
+# Ctrl + A + D
+</code></pre>
+<ol>
+<li>透過 screen 指令進入新的 shell，並透過 suconnect 檔案連線到剛剛建立的服務，並按下快捷鍵將 screen 卸離</li>
+</ol>
+<pre><code>screen
+./suconnect 9487
+# Ctrl + A + D
+</code></pre>
+<ol>
+<li>透過 screen 指令將剛剛卸離的 screen 呈現出來，並重新進入第一個 screen，輸入當前密碼即可獲得 Level 21 密碼!</li>
+</ol>
+<pre><code>screen -ls
+# There are screens on:
+#         3377628.pts-139.bandit  (01/24/2025 02:14:50 AM)        (Detached)
+#         3332936.pts-139.bandit  (01/24/2025 02:11:12 AM)        (Detached)
+# 2 Sockets in /run/screen/S-bandit20.
+screen -r 3332936
+</code></pre>
+]]></content>
+    <author>
+      <name>Cavey (凱維)</name>
+    </author>
+    <category term="資安筆記"></category>
+  </entry>
+  <entry>
+    <title>[OverTheWire] Bandit Level 19 → Level 20</title>
+    <link href="https://m21248074.github.io/blog/posts/2025-01-24-post093340/" rel="alternate" type="text/html"/>
+    <id>https://m21248074.github.io/blog/posts/2025-01-24-post093340/</id>
+    <published>2025-01-24T01:33:40.000Z</published>
+    <updated>2025-01-24T01:33:40.000Z</updated>
+    <summary></summary>
+    <content type="html"><![CDATA[<p>&lt;!--more--&gt;</p>
+<h2>Level Goal</h2>
+<p>To gain access to the next level, you should use the setuid binary in the homedirectory. Execute it without arguments to find out how to use it. The password for this level can be found in the usual place (/etc/bandit_pass), after you have used the setuid binary.</p>
+<h2>My Answer (Step by step)</h2>
+<ol>
+<li>連線到伺服器並登入</li>
+</ol>
+<pre><code>ssh bandit19@bandit.labs.overthewire.org -p 2220
+</code></pre>
+<ol>
+<li>透過 ls 指令可以發現目錄中有一個檔案 bandit20-do，可以直接使用該檔案查看如何使用它</li>
+</ol>
+<pre><code>ls
+./bandit20-do
+# Run a command as another user.
+#   Example: ./bandit20-do id
+</code></pre>
+<p>{{&lt; alert info &gt;}}
+根據程式結果說明，我們可以透過該檔案以使用者 bandit20 來執行指令
+{{&lt; /alert &gt;}}</p>
+<ol>
+<li>透過 bandit20-do 檔案使用 cat 指令來呈現 Level 20 密碼!</li>
+</ol>
+<pre><code>./bandit20-do cat /etc/bandit_pass/bandit20
+</code></pre>
+]]></content>
+    <author>
+      <name>Cavey (凱維)</name>
+    </author>
+    <category term="資安筆記"></category>
+  </entry>
+  <entry>
+    <title>[OverTheWire] Bandit Level 18 → Level 19</title>
+    <link href="https://m21248074.github.io/blog/posts/2025-01-24-post092436/" rel="alternate" type="text/html"/>
+    <id>https://m21248074.github.io/blog/posts/2025-01-24-post092436/</id>
+    <published>2025-01-24T01:24:36.000Z</published>
+    <updated>2025-01-24T01:24:36.000Z</updated>
+    <summary></summary>
+    <content type="html"><![CDATA[<p>&lt;!--more--&gt;</p>
+<h2>Level Goal</h2>
+<p>The password for the next level is stored in a file <strong>readme</strong> in the homedirectory. Unfortunately, someone has modified <strong>.bashrc</strong> to log you out when you log in with SSH.</p>
+<h3>Commands you may need to solve this level</h3>
+<ul>
+<li>ssh</li>
+<li>ls</li>
+<li>cat</li>
+</ul>
+<h2>My Answer (Step by step)</h2>
+<ol>
+<li>連線到伺服器並登入</li>
+</ol>
+<pre><code>ssh bandit18@bandit.labs.overthewire.org -p 2220
+</code></pre>
+<p>{{&lt; alert info &gt;}}
+連線後可以發現馬上被登出
+{{&lt; /alert &gt;}}</p>
+<ol>
+<li>連線回上一等級，並透過 cat 指令找尋伺服器還有哪些shell可以使用</li>
+</ol>
+<pre><code>ssh bandit17@bandit.labs.overthewire.org -p 2220
+cat /etc/shells
+# /bin/sh
+# /usr/bin/sh
+# /bin/bash
+# /usr/bin/bash
+# /bin/rbash
+# /usr/bin/rbash
+# /usr/bin/dash
+# /usr/bin/screen
+# /usr/bin/tmux
+# /usr/bin/showtext
+</code></pre>
+<p>{{&lt; alert info &gt;}}
+根據指令結果，可以發現還有 sh, tmux 等 shell可以使用
+{{&lt; /alert &gt;}}</p>
+<ol>
+<li>重新連線伺服器，但這次指定透過 sh shell 登入</li>
+</ol>
+<pre><code>ssh bandit18@bandit.labs.overthewire.org -p 2220 -t sh
+</code></pre>
+<ol>
+<li>透過 cat 指令將 readme檔案內容呈現至畫面上，即可取得 Level 19 密碼!</li>
+</ol>
+<pre><code>cat readme
+</code></pre>
+]]></content>
+    <author>
+      <name>Cavey (凱維)</name>
+    </author>
+    <category term="資安筆記"></category>
+  </entry>
+  <entry>
+    <title>[OverTheWire] Bandit Level 17 → Level 18</title>
+    <link href="https://m21248074.github.io/blog/posts/2025-01-24-post091533/" rel="alternate" type="text/html"/>
+    <id>https://m21248074.github.io/blog/posts/2025-01-24-post091533/</id>
+    <published>2025-01-24T01:15:33.000Z</published>
+    <updated>2025-01-24T01:15:33.000Z</updated>
+    <summary></summary>
+    <content type="html"><![CDATA[<p>&lt;!--more--&gt;</p>
+<h2>Level Goal</h2>
+<p>There are 2 files in the homedirectory: <strong>passwords.old and passwords.new</strong>. The password for the next level is in <strong>passwords.new</strong> and is the only line that has been changed between <strong>passwords.old and passwords.new</strong></p>
+<p><strong>NOTE: if you have solved this level and see ‘Byebye!’ when trying to log into bandit18, this is related to the next level, bandit19</strong></p>
+<h3>Commands you may need to solve this level</h3>
+<ul>
+<li>cat</li>
+<li>grep</li>
+<li>ls</li>
+<li>diff</li>
+</ul>
+<h2>My Answer (Step by step)</h2>
+<ol>
+<li>連線到伺服器並登入</li>
+</ol>
+<pre><code>ssh bandit17@bandit.labs.overthewire.org -p 2220
+</code></pre>
+<ol>
+<li>透過 diff 指令比對新舊密碼的差異，即可找到 Level 18 密碼!</li>
+</ol>
+<pre><code>diff passwords.new passwords.old
+# 42c42
+# &lt; x2gLTTjFwMOhQ8oWNbMN362QKxfRqGlO
+# ---
+# &gt; ktfgBvpMzWKR5ENj26IbLGSblgUG9CzB
+</code></pre>
+]]></content>
+    <author>
+      <name>Cavey (凱維)</name>
+    </author>
+    <category term="資安筆記"></category>
+  </entry>
+  <entry>
+    <title>[OverTheWire] Bandit Level 16 → Level 17</title>
+    <link href="https://m21248074.github.io/blog/posts/2025-01-23-post161925/" rel="alternate" type="text/html"/>
+    <id>https://m21248074.github.io/blog/posts/2025-01-23-post161925/</id>
+    <published>2025-01-23T08:19:25.000Z</published>
+    <updated>2025-01-23T08:19:25.000Z</updated>
+    <summary></summary>
+    <content type="html"><![CDATA[<p>&lt;!--more--&gt;</p>
+<h2>Level Goal</h2>
+<p>The credentials for the next level can be retrieved by submitting the password of the current level to <strong>a port on localhost in the range 31000 to 32000</strong>. First find out which of these ports have a server listening on them. Then find out which of those speak SSL/TLS and which don’t. There is only 1 server that will give the next credentials, the others will simply send back to you whatever you send to it.</p>
+<p><strong>Helpful note: Getting “DONE”, “RENEGOTIATING” or “KEYUPDATE”? Read the “CONNECTED COMMANDS” section in the manpage</strong>.</p>
+<h3>Commands you may need to solve this level</h3>
+<ul>
+<li>ssh</li>
+<li>telnet</li>
+<li>nc</li>
+<li>socat</li>
+<li>openssl</li>
+<li>s_client</li>
+<li>nmap</li>
+<li>netstat</li>
+<li>ss</li>
+</ul>
+<h2>My Answer (Step by step)</h2>
+<ol>
+<li>連線到伺服器並登入</li>
+</ol>
+<pre><code>ssh bandit16@bandit.labs.overthewire.org -p 2220
+</code></pre>
+<ol>
+<li>透過 nc 與 grep 指令找到指定範圍中所有開放的 TCP port</li>
+</ol>
+<pre><code>nc -vnz -w 1 127.0.0.1 31000-32000 2&gt;&amp;1 | grep succeeded
+# Connection to 127.0.0.1 31046 port [tcp/*] succeeded!
+# Connection to 127.0.0.1 31518 port [tcp/*] succeeded!
+# Connection to 127.0.0.1 31691 port [tcp/*] succeeded!
+# Connection to 127.0.0.1 31790 port [tcp/*] succeeded!
+# Connection to 127.0.0.1 31960 port [tcp/*] succeeded!
+</code></pre>
+<p>{{&lt; alert info &gt;}}
+筆者在此找到五個開放 port
+{{&lt; /alert &gt;}}</p>
+<ol>
+<li>使用 openssl 指令循序嘗試連線上個步驟找到的 port，並輸入當前等級密碼直到獲得下一等級 ssh 金鑰!</li>
+</ol>
+<pre><code>openssl s_client -quiet localhost:31790
+</code></pre>
+<ol>
+<li>透過 mktemp 產生暫存資料夾，並透過 cd 指令進入該資料夾</li>
+</ol>
+<pre><code>mktemp -d
+# /tmp/tmp.WGUd2JpYBc
+cd /tmp/tmp.WGUd2JpYBc
+</code></pre>
+<ol>
+<li>透過 touch 指令產生儲存下一等級 ssh 金鑰的檔案，並透過 vim, vi, nano 等指令將金鑰內容輸入至檔案中，然後用 chmod 指令修改金鑰檔權限</li>
+</ol>
+<pre><code>touch private.key
+nano private.key
+chmod 400 private.key
+</code></pre>
+<ol>
+<li>透過 ssh 指令連線到下一等級，並透過 cat 指令將 Level 17 密碼呈現出來!</li>
+</ol>
+<pre><code>ssh bandit17@bandit.labs.overthewire.org -p 2220 -i private.key
+cat /etc/bandit_pass/bandit17
+</code></pre>
+]]></content>
+    <author>
+      <name>Cavey (凱維)</name>
+    </author>
+    <category term="資安筆記"></category>
+  </entry>
+  <entry>
+    <title>[OverTheWire] Bandit Level 15 → Level 16</title>
+    <link href="https://m21248074.github.io/blog/posts/2025-01-23-post161216/" rel="alternate" type="text/html"/>
+    <id>https://m21248074.github.io/blog/posts/2025-01-23-post161216/</id>
+    <published>2025-01-23T08:12:16.000Z</published>
+    <updated>2025-01-23T08:12:16.000Z</updated>
+    <summary></summary>
+    <content type="html"><![CDATA[<p>&lt;!--more--&gt;</p>
+<h2>Level Goal</h2>
+<p>The password for the next level can be retrieved by submitting the password of the current level to <strong>port 30001 on localhost</strong> using SSL/TLS encryption.</p>
+<p><strong>Helpful note: Getting “DONE”, “RENEGOTIATING” or “KEYUPDATE”? Read the “CONNECTED COMMANDS” section in the manpage</strong>.</p>
+<h3>Commands you may need to solve this level</h3>
+<ul>
+<li>ssh</li>
+<li>telnet</li>
+<li>nc</li>
+<li>socat</li>
+<li>openssl</li>
+<li>s_client</li>
+<li>nmap</li>
+<li>netstat</li>
+<li>ss</li>
+</ul>
+<h2>My Answer (Step by step)</h2>
+<ol>
+<li>連線到伺服器並登入</li>
+</ol>
+<pre><code>ssh bandit15@bandit.labs.overthewire.org -p 2220
+</code></pre>
+<ol>
+<li>透過 openssl 指令連線到本機 30001 port，並輸入當前等級密碼即可獲得 Level 16 密碼!</li>
+</ol>
+<pre><code>openssl s_client localhost:30001
+# 8xCjnmgoKbGLhHFAZlGE5Tmu4M2tKJQo
+# Correct!
+# kSkvUpMQ7lBYyCM4GBPvCvT1BfWRy0Dx
+</code></pre>
+]]></content>
+    <author>
+      <name>Cavey (凱維)</name>
+    </author>
+    <category term="資安筆記"></category>
+  </entry>
+  <entry>
+    <title>[OverTheWire] Bandit Level 14 → Level 15</title>
+    <link href="https://m21248074.github.io/blog/posts/2025-01-23-post160143/" rel="alternate" type="text/html"/>
+    <id>https://m21248074.github.io/blog/posts/2025-01-23-post160143/</id>
+    <published>2025-01-23T08:01:43.000Z</published>
+    <updated>2025-01-23T08:01:43.000Z</updated>
+    <summary></summary>
+    <content type="html"><![CDATA[<p>&lt;!--more--&gt;</p>
+<h2>Level Goal</h2>
+<p>The password for the next level can be retrieved by submitting the password of the current level to <strong>port 30000 on localhost</strong>.</p>
+<h3>Commands you may need to solve this level</h3>
+<ul>
+<li>ssh</li>
+<li>telnet</li>
+<li>nc</li>
+<li>openssl</li>
+<li>s_client</li>
+<li>nmap</li>
+</ul>
+<h2>My Answer (Step by step)</h2>
+<ol>
+<li>連線到伺服器並登入</li>
+</ol>
+<pre><code>ssh bandit14@bandit.labs.overthewire.org -p 2220
+</code></pre>
+<ol>
+<li>透過 nc 指令連線到本機 30000 port，並輸入當前等級密碼即可獲得 Level 15 密碼!</li>
+</ol>
+<pre><code>nc localhost 30000
+# MU4VWeTyJk8ROof1qqmcBPaLh7lDCPvS
+# Correct!
+# 8xCjnmgoKbGLhHFAZlGE5Tmu4M2tKJQo
+</code></pre>
+]]></content>
+    <author>
+      <name>Cavey (凱維)</name>
+    </author>
+    <category term="資安筆記"></category>
+  </entry>
+  <entry>
+    <title>[OverTheWire] Bandit Level 13 → Level 14</title>
+    <link href="https://m21248074.github.io/blog/posts/2025-01-23-post154412/" rel="alternate" type="text/html"/>
+    <id>https://m21248074.github.io/blog/posts/2025-01-23-post154412/</id>
+    <published>2025-01-23T07:44:12.000Z</published>
+    <updated>2025-01-23T07:44:12.000Z</updated>
+    <summary></summary>
+    <content type="html"><![CDATA[<p>&lt;!--more--&gt;</p>
+<h2>Level Goal</h2>
+<p>The password for the next level is stored in <strong>/etc/bandit_pass/bandit14 and can only be read by user bandit14</strong>. For this level, you don’t get the next password, but you get a private SSH key that can be used to log into the next level. <strong>Note: localhost</strong> is a hostname that refers to the machine you are working on</p>
+<h3>Commands you may need to solve this level</h3>
+<ul>
+<li>ssh</li>
+<li>telnet</li>
+<li>nc</li>
+<li>openssl</li>
+<li>s_client</li>
+<li>nmap</li>
+</ul>
+<h2>My Answer (Step by step)</h2>
+<ol>
+<li>連線到伺服器並登入</li>
+</ol>
+<pre><code>ssh bandit13@bandit.labs.overthewire.org -p 2220
+</code></pre>
+<ol>
+<li>透過 ls 指令可以看到當前目錄有通往下一個等級的SSH密鑰</li>
+</ol>
+<pre><code>ls
+# sshkey.private
+</code></pre>
+<ol>
+<li>透過 ssh 指令連線到 bandit14</li>
+</ol>
+<pre><code>ssh bandit14@localhost -p 2220 -i sshkey.private
+</code></pre>
+<ol>
+<li>透過 cat 指令查看 Level 14 密碼!</li>
+</ol>
+<pre><code>cat /etc/bandit_pass/bandit14
+</code></pre>
+]]></content>
+    <author>
+      <name>Cavey (凱維)</name>
+    </author>
+    <category term="資安筆記"></category>
+  </entry>
+  <entry>
+    <title>[OverTheWire] Bandit Level 12 → Level 13</title>
+    <link href="https://m21248074.github.io/blog/posts/2025-01-23-post114208/" rel="alternate" type="text/html"/>
+    <id>https://m21248074.github.io/blog/posts/2025-01-23-post114208/</id>
+    <published>2025-01-23T03:42:08.000Z</published>
+    <updated>2025-01-23T03:42:08.000Z</updated>
+    <summary></summary>
+    <content type="html"><![CDATA[<p>&lt;!--more--&gt;</p>
+<h2>Level Goal</h2>
+<p>The password for the next level is stored in the file <strong>data.txt</strong>, which is a hexdump of a file that has been repeatedly compressed. For this level it may be useful to create a directory under /tmp in which you can work. Use mkdir with a hard to guess directory name. Or better, use the command “mktemp -d”. Then copy the datafile using cp, and rename it using mv (read the manpages!)</p>
+<h3>Commands you may need to solve this level</h3>
+<ul>
+<li>grep</li>
+<li>sort</li>
+<li>uniq</li>
+<li>strings</li>
+<li>base64</li>
+<li>tr</li>
+<li>tar</li>
+<li>gzip</li>
+<li>bzip2</li>
+<li>xxd</li>
+<li>mkdir</li>
+<li>cp</li>
+<li>mv</li>
+<li>file</li>
+</ul>
+<h2>My Answer (Step by step)</h2>
+<ol>
+<li>連線到伺服器並登入</li>
+</ol>
+<pre><code>ssh bandit12@bandit.labs.overthewire.org -p 2220
+</code></pre>
+<ol>
+<li>透過 mktemp 指令產生暫存資料夾供我們使用</li>
+</ol>
+<pre><code>mktemp -d
+</code></pre>
+<ol>
+<li>透過 xxd 指令將 data.txt 恢復成原來檔案並存入暫存資料夾中</li>
+</ol>
+<pre><code>xxd -r data.txt &gt; /tmp/tmp.uWIrdvgW4r/data.bin
+</code></pre>
+<ol>
+<li>透過 cd 指令進入暫存資料夾，並使用 file 指令查看原來檔案的格式</li>
+</ol>
+<pre><code>cd /tmp/tmp.uWIrdvgW4r/
+file data.bin
+</code></pre>
+<p>{{&lt; alert info &gt;}}
+查看指令結果可以發現 data.bin 是 gzip compressed data
+{{&lt; /alert &gt;}}</p>
+<ol>
+<li>透過 mv 指令將 data.bin 改名為 data.gz，並透過 gzip 指令將檔案解壓縮，然後一樣透過 file 指令查看檔案格式</li>
+</ol>
+<pre><code>mv data.bin data.gz
+gzip -d data.gz
+
+ls # 查看新檔案的名稱
+
+file data
+</code></pre>
+<p>{{&lt; alert info &gt;}}
+查看指令結果可以發現 data 是 bzip2 compressed data
+{{&lt; /alert &gt;}}</p>
+<ol>
+<li>透過 bzip2 指令將檔案解壓縮，然後一樣透過 file 指令查看檔案格式</li>
+</ol>
+<pre><code>bzip2 -d data
+# bzip2: Can't guess original name for data -- using data.out
+file data.out
+</code></pre>
+<p>{{&lt; alert info &gt;}}
+查看指令結果可以發現 data.out 是 gzip compressed data
+{{&lt; /alert &gt;}}</p>
+<ol>
+<li>透過 mv 指令將 data.out 改名為 data.gz，並透過 gzip 指令將檔案解壓縮，然後一樣透過 file 指令查看檔案格式</li>
+</ol>
+<pre><code>mv data.out data.gz
+gzip -d data.gz
+
+ls # 查看新檔案的名稱
+
+file data
+</code></pre>
+<p>{{&lt; alert info &gt;}}
+查看指令結果可以發現 data 是 POSIX tar archive
+{{&lt; /alert &gt;}}</p>
+<ol>
+<li>透過 tar 指令將檔案解壓縮，然後一樣透過 file 指令查看檔案格式</li>
+</ol>
+<pre><code>tar -xvf data
+
+ls # 查看新檔案的名稱
+
+file data5.bin
+</code></pre>
+<p>{{&lt; alert info &gt;}}
+查看指令結果可以發現 data5.bin 是 POSIX tar archive
+{{&lt; /alert &gt;}}</p>
+<ol>
+<li>透過 tar 指令將檔案解壓縮，然後一樣透過 file 指令查看檔案格式</li>
+</ol>
+<pre><code>tar -xvf data5.bin
+
+ls # 查看新檔案的名稱
+
+file data6.bin
+</code></pre>
+<p>{{&lt; alert info &gt;}}
+查看指令結果可以發現 data6.bin 是 bzip2 compressed data
+{{&lt; /alert &gt;}}</p>
+<ol>
+<li>透過 bzip2 指令將檔案解壓縮，然後一樣透過 file 指令查看檔案格式</li>
+</ol>
+<pre><code>bzip2 -d data6.bin
+# bzip2: Can't guess original name for data6.bin -- using data6.bin.out
+file data6.bin.out
+</code></pre>
+<p>{{&lt; alert info &gt;}}
+查看指令結果可以發現 data6.bin.out 是 POSIX tar archive
+{{&lt; /alert &gt;}}</p>
+<ol>
+<li>透過 tar 指令將檔案解壓縮，然後一樣透過 file 指令查看檔案格式</li>
+</ol>
+<pre><code>tar -xvf data6.bin.out
+
+ls # 查看新檔案的名稱
+
+file data8.bin
+</code></pre>
+<p>{{&lt; alert info &gt;}}
+查看指令結果可以發現 data8.bin 是 gzip compressed data
+{{&lt; /alert &gt;}}</p>
+<ol>
+<li>透過 mv 指令將 data8.bin 改名為 data8.gz，並透過 gzip 指令將檔案解壓縮，然後一樣透過 file 指令查看檔案格式</li>
+</ol>
+<pre><code>mv data8.bin data8.gz
+gzip -d data8.gz
+
+ls # 查看新檔案的名稱
+
+file data8
+</code></pre>
+<p>{{&lt; alert info &gt;}}
+查看指令結果可以發現 data8 是 ASCII text
+{{&lt; /alert &gt;}}</p>
+<ol>
+<li>透過 cat 指令將 data8 內容呈現出來，即可獲取 Level 13 密碼!</li>
+</ol>
+<pre><code>cat data8
+</code></pre>
+]]></content>
+    <author>
+      <name>Cavey (凱維)</name>
+    </author>
+    <category term="資安筆記"></category>
+  </entry>
+  <entry>
+    <title>[OverTheWire] Bandit Level 11 → Level 12</title>
+    <link href="https://m21248074.github.io/blog/posts/2025-01-23-post113349/" rel="alternate" type="text/html"/>
+    <id>https://m21248074.github.io/blog/posts/2025-01-23-post113349/</id>
+    <published>2025-01-23T03:33:49.000Z</published>
+    <updated>2025-01-23T03:33:49.000Z</updated>
+    <summary></summary>
+    <content type="html"><![CDATA[<p>&lt;!--more--&gt;</p>
+<h2>Level Goal</h2>
+<p>The password for the next level is stored in the file <strong>data.txt</strong>, where all lowercase (a-z) and uppercase (A-Z) letters have been rotated by 13 positions</p>
+<h3>Commands you may need to solve this level</h3>
+<ul>
+<li>grep</li>
+<li>sort</li>
+<li>uniq</li>
+<li>strings</li>
+<li>base64</li>
+<li>tr</li>
+<li>tar</li>
+<li>gzip</li>
+<li>bzip2</li>
+<li>xxd</li>
+</ul>
+<h2>My Answer (Step by step)</h2>
+<ol>
+<li>連線到伺服器並登入</li>
+</ol>
+<pre><code>ssh bandit11@bandit.labs.overthewire.org -p 2220
+</code></pre>
+<ol>
+<li>透過 cat 與 tr 指令，從 data.txt 檔案內容解碼 Level 12 密碼!</li>
+</ol>
+<pre><code>cat data.txt | tr 'A-Za-z' 'N-ZA-Mn-za-m'
+</code></pre>
+]]></content>
+    <author>
+      <name>Cavey (凱維)</name>
+    </author>
+    <category term="資安筆記"></category>
+  </entry>
+  <entry>
+    <title>[OverTheWire] Bandit Level 10 → Level 11</title>
+    <link href="https://m21248074.github.io/blog/posts/2025-01-23-post113037/" rel="alternate" type="text/html"/>
+    <id>https://m21248074.github.io/blog/posts/2025-01-23-post113037/</id>
+    <published>2025-01-23T03:30:37.000Z</published>
+    <updated>2025-01-23T03:30:37.000Z</updated>
+    <summary></summary>
+    <content type="html"><![CDATA[<p>&lt;!--more--&gt;</p>
+<h2>Level Goal</h2>
+<p>The password for the next level is stored in the file <strong>data.txt</strong>, which contains base64 encoded data</p>
+<h3>Commands you may need to solve this level</h3>
+<ul>
+<li>grep</li>
+<li>sort</li>
+<li>uniq</li>
+<li>strings</li>
+<li>base64</li>
+<li>tr</li>
+<li>tar</li>
+<li>gzip</li>
+<li>bzip2</li>
+<li>xxd</li>
+</ul>
+<h2>My Answer (Step by step)</h2>
+<ol>
+<li>連線到伺服器並登入</li>
+</ol>
+<pre><code>ssh bandit10@bandit.labs.overthewire.org -p 2220
+</code></pre>
+<ol>
+<li>透過 cat 與 base64 指令，從 data.txt 檔案內容解碼 Level 11 密碼!</li>
+</ol>
+<pre><code>cat data.txt | base64 -d
+</code></pre>
+]]></content>
+    <author>
+      <name>Cavey (凱維)</name>
+    </author>
+    <category term="資安筆記"></category>
+  </entry>
+  <entry>
+    <title>[OverTheWire] Bandit Level 9 → Level 10</title>
+    <link href="https://m21248074.github.io/blog/posts/2025-01-23-post112216/" rel="alternate" type="text/html"/>
+    <id>https://m21248074.github.io/blog/posts/2025-01-23-post112216/</id>
+    <published>2025-01-23T03:22:16.000Z</published>
+    <updated>2025-01-23T03:22:16.000Z</updated>
+    <summary></summary>
+    <content type="html"><![CDATA[<p>&lt;!--more--&gt;</p>
+<h2>Level Goal</h2>
+<p>The password for the next level is stored in the file <strong>data.txt</strong> in one of the few human-readable strings, preceded by several ‘=’ characters.</p>
+<h3>Commands you may need to solve this level</h3>
+<ul>
+<li>grep</li>
+<li>sort</li>
+<li>uniq</li>
+<li>strings</li>
+<li>base64</li>
+<li>tr</li>
+<li>tar</li>
+<li>gzip</li>
+<li>bzip2</li>
+<li>xxd</li>
+</ul>
+<h2>My Answer (Step by step)</h2>
+<ol>
+<li>連線到伺服器並登入</li>
+</ol>
+<pre><code>ssh bandit9@bandit.labs.overthewire.org -p 2220
+</code></pre>
+<ol>
+<li>透過 cat 與 grep 指令，從 data.txt 檔案內容找尋 Level 10 密碼!</li>
+</ol>
+<pre><code>cat data.txt | grep -a "=="
+</code></pre>
+]]></content>
+    <author>
+      <name>Cavey (凱維)</name>
+    </author>
+    <category term="資安筆記"></category>
+  </entry>
+  <entry>
+    <title>[OverTheWire] Bandit Level 8 → Level 9</title>
+    <link href="https://m21248074.github.io/blog/posts/2025-01-22-post164413/" rel="alternate" type="text/html"/>
+    <id>https://m21248074.github.io/blog/posts/2025-01-22-post164413/</id>
+    <published>2025-01-22T08:44:13.000Z</published>
+    <updated>2025-01-22T08:44:13.000Z</updated>
+    <summary></summary>
+    <content type="html"><![CDATA[<p>&lt;!--more--&gt;</p>
+<h2>Level Goal</h2>
+<p>The password for the next level is stored in the file <strong>data.txt</strong> and is the only line of text that occurs only once</p>
+<h3>Commands you may need to solve this level</h3>
+<ul>
+<li>grep</li>
+<li>sort</li>
+<li>uniq</li>
+<li>strings</li>
+<li>base64</li>
+<li>tr</li>
+<li>tar</li>
+<li>gzip</li>
+<li>bzip2</li>
+<li>xxd</li>
+</ul>
+<h2>My Answer (Step by step)</h2>
+<ol>
+<li>連線到伺服器並登入</li>
+</ol>
+<pre><code>ssh bandit8@bandit.labs.overthewire.org -p 2220
+</code></pre>
+<ol>
+<li>透過 sort 與 uniq 指令，從 data.txt 檔案內容找尋 Level 9 密碼!</li>
+</ol>
+<pre><code>sort data.txt | uniq -u
+</code></pre>
+]]></content>
+    <author>
+      <name>Cavey (凱維)</name>
+    </author>
+    <category term="資安筆記"></category>
+  </entry>
+  <entry>
+    <title>[OverTheWire] Bandit Level 7 → Level 8</title>
+    <link href="https://m21248074.github.io/blog/posts/2025-01-22-post163201/" rel="alternate" type="text/html"/>
+    <id>https://m21248074.github.io/blog/posts/2025-01-22-post163201/</id>
+    <published>2025-01-22T08:32:01.000Z</published>
+    <updated>2025-01-22T08:32:01.000Z</updated>
+    <summary></summary>
+    <content type="html"><![CDATA[<p>&lt;!--more--&gt;</p>
+<h2>Level Goal</h2>
+<p>The password for the next level is stored in the file <strong>data.txt</strong> next to the word <strong>millionth</strong></p>
+<h3>Commands you may need to solve this level</h3>
+<ul>
+<li>man</li>
+<li>grep</li>
+<li>sort</li>
+<li>uniq</li>
+<li>strings</li>
+<li>base64</li>
+<li>tr</li>
+<li>tar</li>
+<li>gzip</li>
+<li>bzip2</li>
+<li>xxd</li>
+</ul>
+<h2>My Answer (Step by step)</h2>
+<ol>
+<li>連線到伺服器並登入</li>
+</ol>
+<pre><code>ssh bandit7@bandit.labs.overthewire.org -p 2220
+</code></pre>
+<ol>
+<li>透過 cat 與 grep 指令，從 data.txt 檔案內容找尋 Level 8 密碼!</li>
+</ol>
+<pre><code>cat data.txt | grep millionth
+</code></pre>
+]]></content>
+    <author>
+      <name>Cavey (凱維)</name>
+    </author>
+    <category term="資安筆記"></category>
+  </entry>
+  <entry>
+    <title>[OverTheWire] Bandit Level 6 → Level 7</title>
+    <link href="https://m21248074.github.io/blog/posts/2025-01-22-post160516/" rel="alternate" type="text/html"/>
+    <id>https://m21248074.github.io/blog/posts/2025-01-22-post160516/</id>
+    <published>2025-01-22T08:05:16.000Z</published>
+    <updated>2025-01-22T08:05:16.000Z</updated>
+    <summary></summary>
+    <content type="html"><![CDATA[<p>&lt;!--more--&gt;</p>
+<h2>Level Goal</h2>
+<p>The password for the next level is stored <strong>somewhere on the server</strong> and has all of the following properties:</p>
+<ul>
+<li>owned by user bandit7</li>
+<li>owned by group bandit6</li>
+<li>33 bytes in size</li>
+</ul>
+<h3>Commands you may need to solve this level</h3>
+<ul>
+<li>ls</li>
+<li>cd</li>
+<li>cat</li>
+<li>file</li>
+<li>du</li>
+<li>find</li>
+<li>grep</li>
+</ul>
+<h2>My Answer (Step by step)</h2>
+<ol>
+<li>連線到伺服器並登入</li>
+</ol>
+<pre><code>ssh bandit6@bandit.labs.overthewire.org -p 2220
+</code></pre>
+<ol>
+<li>由於題目說檔案在伺服器的某個地方，故透過 cd 指令進入根目錄</li>
+</ol>
+<pre><code>cd /
+</code></pre>
+<ol>
+<li>透過 find 指令找到符合使用者名稱與群組條件的檔案</li>
+</ol>
+<pre><code>find / -user bandit7 -group bandit6
+</code></pre>
+<ol>
+<li>根據前面指令結果顯示的檔案路徑，透過 cat 指令即可查看 Level 7 密碼!</li>
+</ol>
+<pre><code>cat /var/lib/dpkg/info/bandit7.password
+</code></pre>
+]]></content>
+    <author>
+      <name>Cavey (凱維)</name>
+    </author>
+    <category term="資安筆記"></category>
+  </entry>
+  <entry>
+    <title>[OverTheWire] Bandit Level 5 → Level 6</title>
+    <link href="https://m21248074.github.io/blog/posts/2025-01-22-post155016/" rel="alternate" type="text/html"/>
+    <id>https://m21248074.github.io/blog/posts/2025-01-22-post155016/</id>
+    <published>2025-01-22T07:50:16.000Z</published>
+    <updated>2025-01-22T07:50:16.000Z</updated>
+    <summary></summary>
+    <content type="html"><![CDATA[<p>&lt;!--more--&gt;</p>
+<h2>Level Goal</h2>
+<p>The password for the next level is stored in a file somewhere under the <strong>inhere</strong> directory and has all of the following properties:</p>
+<ul>
+<li>human-readable</li>
+<li>1033 bytes in size</li>
+<li>not executable</li>
+</ul>
+<h3>Commands you may need to solve this level</h3>
+<ul>
+<li>ls</li>
+<li>cd</li>
+<li>cat</li>
+<li>file</li>
+<li>du</li>
+<li>find</li>
+</ul>
+<h2>My Answer (Step by step)</h2>
+<ol>
+<li>連線到伺服器並登入</li>
+</ol>
+<pre><code>ssh bandit5@bandit.labs.overthewire.org -p 2220
+</code></pre>
+<ol>
+<li>透過 ls 指令會看到 inhere 資料夾</li>
+</ol>
+<pre><code>ls -al
+</code></pre>
+<ol>
+<li>透過 cd 指令進入 inhere 資料夾，並再次透過 ls 指令查看資料夾內容，可以發現多個資料夾</li>
+</ol>
+<pre><code>cd inhere
+ls -al
+</code></pre>
+<ol>
+<li>透過 ls 與 grep 指令查看大小為 1033 bytes 的檔案</li>
+</ol>
+<pre><code>ls -alR | grep -B 5 1033
+</code></pre>
+<ol>
+<li>根據前面指令結果顯示的檔案路徑，透過 cat 指令即可查看 Level 6 密碼!</li>
+</ol>
+<pre><code>cat ./maybehere07/.file2
+</code></pre>
+]]></content>
+    <author>
+      <name>Cavey (凱維)</name>
+    </author>
+    <category term="資安筆記"></category>
+  </entry>
+  <entry>
+    <title>[OverTheWire] Bandit Level 4 → Level 5</title>
+    <link href="https://m21248074.github.io/blog/posts/2025-01-22-post145357/" rel="alternate" type="text/html"/>
+    <id>https://m21248074.github.io/blog/posts/2025-01-22-post145357/</id>
+    <published>2025-01-22T06:53:57.000Z</published>
+    <updated>2025-01-22T06:53:57.000Z</updated>
+    <summary></summary>
+    <content type="html"><![CDATA[<p>&lt;!--more--&gt;</p>
+<h2>Level Goal</h2>
+<p>The password for the next level is stored in the only human-readable file in the <strong>inhere</strong> directory.</p>
+<p>Tip: if your terminal is messed up, try the “reset” command.</p>
+<h3>Commands you may need to solve this level</h3>
+<ul>
+<li>ls</li>
+<li>cd</li>
+<li>cat</li>
+<li>file</li>
+<li>du</li>
+<li>find</li>
+</ul>
+<h2>My Answer (Step by step)</h2>
+<ol>
+<li>連線到伺服器並登入</li>
+</ol>
+<pre><code>ssh bandit4@bandit.labs.overthewire.org -p 2220
+</code></pre>
+<ol>
+<li>透過 ls 指令會看到 inhere 資料夾</li>
+</ol>
+<pre><code>ls -al
+</code></pre>
+<ol>
+<li>透過 cd 指令進入 inhere 資料夾，並再次透過 ls 指令查看資料夾內容，可以發現多個檔案</li>
+</ol>
+<pre><code>cd inhere
+ls -al
+</code></pre>
+<ol>
+<li>透過 find 與 cat 指令查看所有檔案即可看到 Level 5 密碼!</li>
+</ol>
+<pre><code>find . -name "*file*" -exec cat {} \;
+</code></pre>
+]]></content>
+    <author>
+      <name>Cavey (凱維)</name>
+    </author>
+    <category term="資安筆記"></category>
+  </entry>
+  <entry>
+    <title>[OverTheWire] Bandit Level 3 → Level 4</title>
+    <link href="https://m21248074.github.io/blog/posts/2025-01-22-post144909/" rel="alternate" type="text/html"/>
+    <id>https://m21248074.github.io/blog/posts/2025-01-22-post144909/</id>
+    <published>2025-01-22T06:49:09.000Z</published>
+    <updated>2025-01-22T06:49:09.000Z</updated>
+    <summary></summary>
+    <content type="html"><![CDATA[<p>&lt;!--more--&gt;</p>
+<h2>Level Goal</h2>
+<p>The password for the next level is stored in a hidden file in the <strong>inhere</strong> directory.</p>
+<h3>Commands you may need to solve this level</h3>
+<ul>
+<li>ls</li>
+<li>cd</li>
+<li>cat</li>
+<li>file</li>
+<li>du</li>
+<li>find</li>
+</ul>
+<h2>My Answer (Step by step)</h2>
+<ol>
+<li>連線到伺服器並登入</li>
+</ol>
+<pre><code>ssh bandit3@bandit.labs.overthewire.org -p 2220
+</code></pre>
+<ol>
+<li>透過 ls 指令會看到 inhere 資料夾</li>
+</ol>
+<pre><code>ls -al
+</code></pre>
+<ol>
+<li>透過 cd 指令進入 inhere 資料夾，並再次透過 ls 指令查看資料夾內容，可以發現 ...Hiding-From-You 檔案</li>
+</ol>
+<pre><code>cd inhere
+ls -al
+</code></pre>
+<ol>
+<li>透過 cat 指令讀取 ...Hiding-From-You 檔案即可看到 Level 4 密碼!</li>
+</ol>
+<pre><code>cat ./...Hiding-From-You
+</code></pre>
+]]></content>
+    <author>
+      <name>Cavey (凱維)</name>
+    </author>
+    <category term="資安筆記"></category>
+  </entry>
+  <entry>
+    <title>[OverTheWire] Bandit Level 2 → Level 3</title>
+    <link href="https://m21248074.github.io/blog/posts/2025-01-22-post143235/" rel="alternate" type="text/html"/>
+    <id>https://m21248074.github.io/blog/posts/2025-01-22-post143235/</id>
+    <published>2025-01-22T06:32:35.000Z</published>
+    <updated>2025-01-22T06:32:35.000Z</updated>
+    <summary></summary>
+    <content type="html"><![CDATA[<p>&lt;!--more--&gt;</p>
+<h2>Level Goal</h2>
+<p>The password for the next level is stored in a file called <strong>spaces in this filename</strong> located in the home directory</p>
+<h3>Commands you may need to solve this level</h3>
+<ul>
+<li>ls</li>
+<li>cd</li>
+<li>cat</li>
+<li>file</li>
+<li>du</li>
+<li>find</li>
+</ul>
+<h2>My Answer (Step by step)</h2>
+<ol>
+<li>連線到伺服器並登入</li>
+</ol>
+<pre><code>ssh bandit2@bandit.labs.overthewire.org -p 2220
+</code></pre>
+<ol>
+<li>透過 ls 指令會看到 spaces in this filename 檔案</li>
+</ol>
+<pre><code>ls
+</code></pre>
+<ol>
+<li>透過 cat 指令讀取 spaces in this filename 檔案即可看到 Level 3 密碼!</li>
+</ol>
+<pre><code>cat "spaces in this filename"
+</code></pre>
+]]></content>
+    <author>
+      <name>Cavey (凱維)</name>
+    </author>
+    <category term="資安筆記"></category>
+  </entry>
+  <entry>
+    <title>[OverTheWire] Bandit Level 1 → Level 2</title>
+    <link href="https://m21248074.github.io/blog/posts/2025-01-22-post141351/" rel="alternate" type="text/html"/>
+    <id>https://m21248074.github.io/blog/posts/2025-01-22-post141351/</id>
+    <published>2025-01-22T06:13:51.000Z</published>
+    <updated>2025-01-22T06:13:51.000Z</updated>
+    <summary></summary>
+    <content type="html"><![CDATA[<p>&lt;!--more--&gt;</p>
+<h2>Level Goal</h2>
+<p>The password for the next level is stored in a file called - located in the home directory</p>
+<h3>Commands you may need to solve this level</h3>
+<ul>
+<li>ls</li>
+<li>cd</li>
+<li>cat</li>
+<li>file</li>
+<li>du</li>
+<li>find</li>
+</ul>
+<h2>My Answer (Step by step)</h2>
+<ol>
+<li>連線到伺服器並登入</li>
+</ol>
+<pre><code>ssh bandit1@bandit.labs.overthewire.org -p 2220
+</code></pre>
+<ol>
+<li>透過 ls 指令會看到 - 檔案</li>
+</ol>
+<pre><code>ls
+</code></pre>
+<ol>
+<li>透過 cat 指令讀取 - 檔案即可看到 Level 2 密碼!</li>
+</ol>
+<pre><code>cat ./-
+</code></pre>
+]]></content>
+    <author>
+      <name>Cavey (凱維)</name>
+    </author>
+    <category term="資安筆記"></category>
+  </entry>
+  <entry>
+    <title>[OverTheWire] Bandit Level 0 & Level 0 → Level 1</title>
+    <link href="https://m21248074.github.io/blog/posts/2025-01-22-post134705/" rel="alternate" type="text/html"/>
+    <id>https://m21248074.github.io/blog/posts/2025-01-22-post134705/</id>
+    <published>2025-01-22T05:47:05.000Z</published>
+    <updated>2025-01-22T05:47:05.000Z</updated>
+    <summary></summary>
+    <content type="html"><![CDATA[<p>&lt;!--more--&gt;</p>
+<h2>Level Goal</h2>
+<p>The goal of this level is for you to log into the game using SSH. The host to which you need to connect is <strong>bandit.labs.overthewire.org</strong>, on port 2220. The username is <strong>bandit0</strong> and the password is <strong>bandit0</strong>. Once logged in, go to the Level 1 page to find out how to beat Level 1.</p>
+<p>The password for the next level is stored in a file called <strong>readme</strong> located in the home directory. Use this password to log into bandit1 using SSH. Whenever you find a password for a level, use SSH (on port 2220) to log into that level and continue the game.</p>
+<h3>Commands you may need to solve this level</h3>
+<ul>
+<li>
+<p>ssh</p>
+</li>
+<li>
+<p>ls</p>
+</li>
+<li>
+<p>cd</p>
+</li>
+<li>
+<p>cat</p>
+</li>
+<li>
+<p>file</p>
+</li>
+<li>
+<p>du</p>
+</li>
+<li>
+<p>find</p>
+</li>
+</ul>
+<h2>My Answer (Step by step)</h2>
+<ol>
+<li>連線到伺服器並登入</li>
+</ol>
+<pre><code>ssh bandit0@bandit.labs.overthewire.org -p 2220
+</code></pre>
+<ol>
+<li>透過 ls 指令會看到 readme 檔案</li>
+</ol>
+<pre><code>ls
+</code></pre>
+<ol>
+<li>透過 cat 指令讀取 readme 檔案即可看到 Level 1 密碼!</li>
+</ol>
+<pre><code>cat readme
+</code></pre>
+]]></content>
+    <author>
+      <name>Cavey (凱維)</name>
+    </author>
+    <category term="資安筆記"></category>
+  </entry>
+  <entry>
+    <title>搖擺的公平</title>
+    <link href="https://m21248074.github.io/blog/posts/2023-03-20-post222350/" rel="alternate" type="text/html"/>
+    <id>https://m21248074.github.io/blog/posts/2023-03-20-post222350/</id>
+    <published>2023-03-20T14:23:50.000Z</published>
+    <updated>2023-03-20T14:23:50.000Z</updated>
+    <summary></summary>
+    <content type="html"><![CDATA[<p>對於一些人的公平，對另一些人可能就是不公。
+&lt;!--more--&gt;
+社會像是不斷搖擺的天平，偶爾會對自己傾斜，偶爾就會對自己不公。<br />
+有的人在天平的搖擺中，踩準了節奏，平步青雲，有的人卻總是踩不準，可能一輩子都在被坑。</p>
+<p>所謂貴人就是某種程度上，熟悉了天平的搖擺，偶爾會告訴你該往哪走，<br />
+但是絕大多數時候絕大多數人，只能兩眼一黑，浮沉由它。</p>
+<p>天平的一端無法撐起所有人，多數人站著的地方，往往還要向下沉一些。</p>
+]]></content>
+    <author>
+      <name>Cavey (凱維)</name>
+    </author>
+    <category term="生命省思"></category>
+  </entry>
+  <entry>
+    <title>能夠自己離開，回家才是有意義的</title>
+    <link href="https://m21248074.github.io/blog/posts/2023-03-20-post220050/" rel="alternate" type="text/html"/>
+    <id>https://m21248074.github.io/blog/posts/2023-03-20-post220050/</id>
+    <published>2023-03-20T14:00:50.000Z</published>
+    <updated>2023-03-20T14:00:50.000Z</updated>
+    <summary></summary>
+    <content type="html"><![CDATA[<p>對於一個不能離開家的人，待在家裡並非自主選擇，無法體現自身的意志。
+&lt;!--more--&gt;
+這意志的背後，才是他對於家的真實態度。</p>
+<p>當他被迫待在家裡的時候，在真情實感上是厭惡家庭的。<br />
+當他能夠自由離開，卻依然想回家的時候，才是真的接受了家庭。</p>
+<p>能夠自己離開，回家才是有意義的，<br />
+正如，<br />
+「能夠批評，讚美才是有意義的」，<br />
+「能夠反對，贊同才是有意義的」。</p>
+<p>自由是美德的前提，<br />
+因為人不同於物品，有著很強的主觀意識，你無法通過強迫真正擁有一段關係。</p>
+<p>握得太緊，卻加速了流失，<br />
+牢牢束縛，會把他推得更遠，<br />
+來去自由，你才有可能真正得到。</p>
+]]></content>
+    <author>
+      <name>Cavey (凱維)</name>
+    </author>
+    <category term="生命省思"></category>
+  </entry>
+  <entry>
+    <title>瀕死領悟</title>
+    <link href="https://m21248074.github.io/blog/posts/2022-10-12-post231755/" rel="alternate" type="text/html"/>
+    <id>https://m21248074.github.io/blog/posts/2022-10-12-post231755/</id>
+    <published>2022-10-12T15:17:55.000Z</published>
+    <updated>2022-10-12T15:17:55.000Z</updated>
+    <summary></summary>
+    <content type="html"><![CDATA[<p>一個將死之人，很容易懂得珍惜家人的陪伴，很容易明白世事都可以原諒。
+&lt;!--more--&gt;
+當他發現自己重獲新生時，也容易信誓旦旦，承諾未來要活得更加充實，可用不了多久，他還是會變回原來的自己。</p>
+<p>一直以來有這麼個假設，說如果人可以倒著活，因為先見識過死亡與衰老，這一生就會活得很通透很成功。<br />
+我現在不太相信這個假設，人越接近死亡，越看得通透，但人不會一直活在極限的邊緣，只要你回到真實的生活裡，放眼望去就都是平淡，而平淡最擅長的就是消耗銳氣，間歇性的躊躇滿志，持續性的混吃等死，才能成為人間常態。</p>
+<p>大多數情況下，一個人不會被晴天霹靂所擊垮，卻是被生活的瑣碎消磨掉所有志氣。<br />
+時間無言，沒有立即翻臉，像水一般輕柔無聲，悄悄打磨我們，往往是出走半生，才發現，早已面目全非。<br />
+原來，看不見的招式，才最可怕，憑著兩眼與百臂或千手不能防。</p>
+]]></content>
+    <author>
+      <name>Cavey (凱維)</name>
+    </author>
+    <category term="生命省思"></category>
+  </entry>
+  <entry>
+    <title>靈魂伴侶</title>
+    <link href="https://m21248074.github.io/blog/posts/2022-10-07-post200649/" rel="alternate" type="text/html"/>
+    <id>https://m21248074.github.io/blog/posts/2022-10-07-post200649/</id>
+    <published>2022-10-07T12:06:49.000Z</published>
+    <updated>2022-10-07T12:06:49.000Z</updated>
+    <summary></summary>
+    <content type="html"><![CDATA[<p>每當感情不順的時候，人往往會想找個靈魂伴侶，來包容自己的一切。
+&lt;!--more--&gt;</p>
+<p>聽起來很美好，但仔細想想，包容一切，就是好的壞的都要包容，你做好的何需別人包容？<br />
+無非是希望靈魂伴侶能包容你的錯誤，所以這大概率是一種自私的願望，<br />
+幻想有那麼一個人，在他面前，自己的錯誤也能成為美好，這樣就不用為了自己的錯誤難堪和買單，相比之下，眼前那個嫌棄你犯錯的人，可不就成了「罪人」？</p>
+<p>用虛構的完美來審判令人不悅的現實，現實必然是有罪的。</p>
+]]></content>
+    <author>
+      <name>Cavey (凱維)</name>
+    </author>
+    <category term="生命省思"></category>
+  </entry>
+  <entry>
+    <title>儘管我們手中空無一物</title>
+    <link href="https://m21248074.github.io/blog/posts/2022-07-21-post194836/" rel="alternate" type="text/html"/>
+    <id>https://m21248074.github.io/blog/posts/2022-07-21-post194836/</id>
+    <published>2022-06-14T06:47:00.000Z</published>
+    <updated>2022-06-14T06:47:00.000Z</updated>
+    <summary></summary>
+    <content type="html"><![CDATA[<p>愛是如此的美好，但最後都免不了一陣痛苦。
+&lt;!--more--&gt;</p>
+<p>你愛那珍饈美饌，可是食物會變質。
+你愛那錦衣華裳，可是布料會褪色。
+你認定了一個人，卻也只敢承諾「至死不渝」。</p>
+<p>誰又能夠敵得過生命無常？</p>
+<p>那些乘載愛的事物都不能長存，
+獨獨留下愛穿越時空而不消亡，
+化作了每個清晨午後的嘆息。</p>
+<p>愛可以永恆，是我們熬不過永遠。</p>
+<p>這個世界每天都有這樣的遺憾，但我們還是會去愛，義無反顧地走向這結局。
+因為人生如斷梗浮萍，隨波逐流，總要抓住一些可以恆常的信念，才有勇氣在無常的風浪裡活下去。</p>
+]]></content>
+    <author>
+      <name>Cavey (凱維)</name>
+    </author>
+    <category term="生命省思"></category>
+  </entry>
+  <entry>
+    <title>時間是水，淹沒了生活</title>
+    <link href="https://m21248074.github.io/blog/posts/2022-07-21-post195038/" rel="alternate" type="text/html"/>
+    <id>https://m21248074.github.io/blog/posts/2022-07-21-post195038/</id>
+    <published>2022-06-05T07:33:00.000Z</published>
+    <updated>2022-06-05T07:33:00.000Z</updated>
+    <summary></summary>
+    <content type="html"><![CDATA[<p>我們掙扎著向上，浮出水面得以喘息。
+過去越來越多，明天越來越少。
+期待越來越少，回憶越來越多。
+&lt;!--more--&gt;</p>
+<p>年歲漸長，我們也越來越像一座孤島。
+因為人生的大部分，都被藏在了水面之下，
+極少有人看得懂，他們只看到一座尖銳的小屋，
+掙扎在汪洋之中，等候著隨時被命運沒過。</p>
+<p>我們對明天的期待越來越少，總覺得屬於自己的都在水下，彷彿那裏才是該去的地方。
+我們也不再害怕沉沒，因為想要的生活都在下面。</p>
+]]></content>
+    <author>
+      <name>Cavey (凱維)</name>
+    </author>
+    <category term="生命省思"></category>
+  </entry>
+  <entry>
+    <title>凝視黑暗後見不得光</title>
+    <link href="https://m21248074.github.io/blog/posts/2022-07-21-post194536/" rel="alternate" type="text/html"/>
+    <id>https://m21248074.github.io/blog/posts/2022-07-21-post194536/</id>
+    <published>2022-05-14T06:26:00.000Z</published>
+    <updated>2022-05-14T06:26:00.000Z</updated>
+    <summary></summary>
+    <content type="html"><![CDATA[<blockquote>
+<p>黑暗有什麼價值?襯托光明。
+&lt;!--more--&gt;</p>
+</blockquote>
+<p>光斑流轉的河流在絕對的黑暗中，美的不可方物，讓外面的光影世界黯然失色。</p>
+<p>可沉迷於這樣的美，卻會逐漸失去外面的光明。這一點其實不難理解，黑暗中的光河，鮮明的對比帶來過強的感官刺激，就像生活中那些帶來激烈快感的事物，過多的享受這種快感，人的腦袋就會疲於應對，平淡的快樂再也不能為心中帶來波瀾，正常水準的刺激就成了一種匱乏、一種痛苦。</p>
+<p>刺激不斷加強的後果就是我們連看一部長電影的耐心都越發稀有，更別說要讀完一本厚厚的書，幾分鐘不點開手機一次，甚至還會感到有些痛苦。每每想到這裡我都會忍不住感慨，感慨這個時代真的很好，很便利，想看甚麼大部分都有人掰開了、揉碎了做給你看，但這種賜予，似乎也是一種詛咒。</p>
+<p>我想我永遠失去了小時候的那種快樂，電視上偶爾播出喜歡的卡通，我每天準時準點守在螢幕前，等待一集的施捨，偶爾因為特殊節日，可能還額外多播了一集，讓我滿心歡喜，看到關鍵的劇情它總會戛然而止，留下我在未來的一整天幻想，期待劇情的各種可能。</p>
+<p>那時候福利社裡的零食還很誘人，唯一的缺憾是自己口袋裡的硬幣太少。偶爾與父母去一次餐廳，每一道菜都令人回味無窮。我現在能買很多零食，卻不想吃了，我也可以點很多菜，但每一碟都沒那麼美味了。</p>
+<p>這個時代很好，因為產生快樂的要素很容易得到，這個時代也不好，因為那些要素太容易得到，得把慾望砍一半，才能感受到快樂。我想我們已經看了太久黑暗中的光河，它過於鮮亮，以至於讓外面的光影世界顯得可有可無。世界沒怎麼變，是人的慾望在迭代，它不斷累積、膨脹，那些超出現實的部分，都化作了人的痛苦，變成了世間的罪惡。</p>
+]]></content>
+    <author>
+      <name>Cavey (凱維)</name>
+    </author>
+    <category term="生命省思"></category>
+  </entry>
+  <entry>
+    <title>我恨你，所以我不要成為你</title>
+    <link href="https://m21248074.github.io/blog/posts/2022-07-21-post192303/" rel="alternate" type="text/html"/>
+    <id>https://m21248074.github.io/blog/posts/2022-07-21-post192303/</id>
+    <published>2022-03-27T01:53:00.000Z</published>
+    <updated>2022-03-27T01:53:00.000Z</updated>
+    <summary></summary>
+    <content type="html"><![CDATA[<blockquote>
+<p>有人說，我恨你，但卻變成了你。
+&lt;!--more--&gt;</p>
+</blockquote>
+<p>大家小時候，或者年輕的時候，一定在成長的過程中有許多看不慣的人事物，但最後的結果往往令人唏噓，那就是我們活成了曾經討厭的樣子。</p>
+<p>也許是忘了初心，也許是曾經的討厭不合理，抑或是兩者情況都有。從滔滔不絕的翩翩少年變成柴米油鹽的中年大叔。有人說這是歲月磨平人的稜角，有人說這是初心易得，始終難守，但很少有人說柴米油鹽才是生活的真相。有的稜角就是年少情狂的妄想症，而生活終會讓我們痊癒。有些初心就是因為知道太少，才會如此確定以及執著。以前看到一座山，我們認為它就是山，後來它變得不像山，可慢慢地又變回了山，這其實象徵著人類認知的三種階段。首先我們學到知識，把它奉為真理，後來發現它們的錯誤，便開始對其進行批判與排斥，再後來，便慢慢心平氣和，瞭解到原來所有知識都是侷限的，有它的應用背景，導致需要滿足某些條件或假設才予以套用。</p>
+<p>每個人的認知都充滿缺陷，學到的知識、產生的想法，永遠不可能圓滿，就像你問我平行宇宙的機制，我很想討論，卻苦有心無力，很多問題還處於設想階段，甚至還略微玄幻。而知識尚且有侷限，何況人與人之間的理解，能在有限的共鳴裡會心一笑，已屬難得，共勉之。</p>
+]]></content>
+    <author>
+      <name>Cavey (凱維)</name>
+    </author>
+    <category term="生命省思"></category>
+  </entry>
+</feed>
