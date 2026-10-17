@@ -44,13 +44,13 @@ import { withUserConfig } from "@/utils/config-overlay.ts";
  *    - 特点：首屏立即可播本地音乐，后台无感拉取远端歌单并在就绪后无缝扩容；
  *            若遇断网或云端接口故障，自动静默降级为本地曲目播放，绝不报红破版。
  *    - 示例：
- *      provider: "mixed",
+ *      provider: "meting",
  *      meting: { server: "netease", type: "playlist", id: "14164869977" }
  * ─────────────────────────────────────────────────────────────────────────────
  */
 export const musicConfig: MusicConfig = withUserConfig("music", {
 	enable: true,
-	provider: "mixed",
+	provider: "meting",
 	// tracks: [
 	// 	{
 	// 		id: "custom-1",
@@ -64,10 +64,10 @@ export const musicConfig: MusicConfig = withUserConfig("music", {
 	meting: {
 		server: "netease",
 		type: "playlist",
-		id: "14164869977",
+		id: "12661036641",
 		// 进入视口时预取歌单元数据（仅元信息，不预取音频流）：
 		// "metadata"（取）| "none"（默认，不取；交互后才请求，卡片显示「尚未请求」占位）
-		preload: "none",
+		preload: "metadata",
 	},
 	defaultVolume: 0.7,
 	defaultMode: "sequence",
@@ -166,7 +166,7 @@ export function resolveMusicOptions(
 		const metingId = config.meting?.id?.trim();
 		if (playlist.length === 0 && !metingId) return null;
 		return Object.freeze({
-			provider: "mixed",
+			provider: "meting",
 			playlist: Object.freeze(playlist),
 			meting: resolveMetingConfig(config.meting),
 			defaultVolume: clampMusicVolume(config.defaultVolume),
