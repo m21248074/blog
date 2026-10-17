@@ -1,22 +1,31 @@
-<img align="right" src="https://badges.frapsoft.com/os/v1/open-source.svg"></img>
-
 <h1 align="center">
 
 👋 Hi there, I'm [Cavey](https://m21248074.github.io)!
 
 </h1>
 
-![header](https://raw.githubusercontent.com/chiraag-kakar/chiraag-kakar/master/hadder.gif)
+<img align="right" src="https://badges.frapsoft.com/os/v1/open-source.svg"></img>
+<br/>
 
 <div align="center">
 
-Hi, I'm Tian Kai-Wei, a Applied AI & Enterprise Developer from Taiwan.
+![header](https://raw.githubusercontent.com/chiraag-kakar/chiraag-kakar/master/hadder.gif)
 
 </div>
 
+<div align="center">
+
+Hi, I'm Tian Kai-Wei, a Web Developer from Taiwan.
+
+</div>
+
+<img align='right' src="https://raw.githubusercontent.com/nirala96/nirala96/master/70804f7e25b11f29db904f2fa7b4cd9d.gif" width="300"></img>
+
 <samp>
 
+- 💼 I’m currently working as a web developer, building web applications with *Laravel* and *vanilla PHP*.
 - 🌱 I’m currently learning *Redis* and *Docker*.
+- 🎮 In my spare time, I build game mods and tools (Unity mods, Guild Wars 2 add-ons, browser extensions) and work on Traditional Chinese localization.
 - 🎿 Hobbies other than coding : Reading books or about Programming, Playing games on steam and Watching the Anime.
 - 🏗️ Looking to collaborate on more Open Source projects
 - 💖 Fun fact: I love to play games about magic such as [Wizard101](https://wizard101.com).
@@ -24,7 +33,7 @@ Hi, I'm Tian Kai-Wei, a Applied AI & Enterprise Developer from Taiwan.
 
 </samp>
 
-## A little more about me...
+## <img src="https://media.giphy.com/media/VgCDAzcKvsR6OM0uWg/giphy.gif" width="50"> A little more about me...
 
 ```javascript
 var Cavey = { // I am a variable, rather than a constant.
@@ -32,18 +41,23 @@ var Cavey = { // I am a variable, rather than a constant.
     motto: "The Programmers of Tomorrow are the Wizards of the Future.",
     blogUrl: "https://m21248074.github.io/",
     code: ["C", "C++", "C#", "Java", "Python", "HTML5", "CSS3", "JavaScript ES6+", "PHP"],
-    askMeAbout: ["Web Dev", "Tech", "App Dev", "Game"],
+    askMeAbout: ["Web Dev", "Tech", "App Dev", "Game Modding", "Localization"],
     technologies: {
-        front_end: ["Bootstrap", "JQuery", "React"],
-        back_end: ["Laravel", "ASP.NET Web API"],
-        database: ["MySQL", "Oracle DB"]
+        front_end: ["Bootstrap", "JQuery", "React", "Vue", "DevExpress"],
+        back_end: ["Laravel", "ASP.NET Web API", "EF Core"],
+        full_stack: ["Blazor"],
+        database: ["MySQL", "Oracle DB", "SQL Server"]
     }
 }
 ```
 
-I love connecting with people who have different IT skills so if you want to say hi, I'll be happy to meet you more! :)
+<div align="center">
 
-## 📊 GitHub Stats
+**I love connecting with people who have different IT skills** so if you want to say **hi, I'll be happy to meet you more!** :)
+
+</div>
+
+## 📊 GitHub Stats...
 
 <img align="left" src="https://img.shields.io/github/followers/m21248074?style=social"></img>
 <img align="left" src="https://img.shields.io/github/stars/m21248074?style=social"></img>
@@ -54,7 +68,7 @@ I love connecting with people who have different IT skills so if you want to say
 
 <div align="center">
 
-<img src="http://github-readme-streak-stats.herokuapp.com?user=m21248074&theme=dark"></img>
+<img src="https://github-readme-streak-stats.herokuapp.com?user=m21248074&theme=dark"></img>
 
 </div>
 
@@ -73,7 +87,7 @@ I love connecting with people who have different IT skills so if you want to say
 
 <div align="center">
 
-<img src="https://github-readme-activity-graph.vercel.app/graph?username=m21248074&bg_color=1F222E&color=F8D866&point=FFFFFF"></img>
+<img src="https://github-readme-activity-graphkayan.vercel.app/graph?username=m21248074&bg_color=1F222E&color=F8D866&point=FFFFFF"></img>
 
 </div>
 
@@ -81,13 +95,13 @@ I love connecting with people who have different IT skills so if you want to say
 
 <div align="center">
 
-[![trophy](https://github-profile-trophy-tawny.vercel.app/?username=m21248074&theme=onedark)](https://github.com/ryo-ma/github-profile-trophy)
+<img src="https://trophygithubreadmelang.cybee.dpdns.org/?username=m21248074&theme=onedark"></img>
 
 </div>
 
 ## Spotify Playing 🎧
 
-[![Spotify](https://novatorem-kyzbk7wxl-bardiesel.vercel.app/api/spotify)](https://open.spotify.com/user/31nqesksfjtohx4syraxnobdrlem)
+[![spotify-github-profile](https://spotify-github-profile.kittinanx.com/api/view?uid=31nqesksfjtohx4syraxnobdrlem&cover_image=true&theme=default&show_offline=false&background_color=121212&interchange=false&profanity=false&hide_remaster=false)](https://github.com/kittinan/spotify-github-profile)
 
 ## Dev Joke For Special You
 
